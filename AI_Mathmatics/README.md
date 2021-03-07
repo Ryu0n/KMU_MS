@@ -241,15 +241,16 @@ r3 = x1 + 4 + 1 = 1 이므로 x1은 -4임을 바로 알 수 있다.
 2. 주어진 linear system 의 rank 를 알려준다.
 3. linear system 에 해가 있는지 (consistent) 없는지 (inconsistent) 알려준다.
 
-#### rank
-전방소거법(forward elimination)을 마친 row vector 가 주대각선의 1의 갯수이다.
+#### Rank
+전방소거법(forward elimination)을 마친 row vector 가 0으로 이루어진 row를 제외한 row의 갯수이다.
 이것이 필요한 이유는?  
+
 예를 들어보자.
 ```
 rank = 2)
 
 | 1 3| |x1|   |2|  forward elimination  | 1 3| |x1|   |2|
-|    | |  | = | |  -------------------> |    | |  | = |2|
+|    | |  | = | |  -------------------> |    | |  | = | |
 |-2 1| |x2|   |3|                       | 0 1| |x2|   |1|
 ```
 
@@ -257,10 +258,33 @@ rank = 2)
 rank = 1)
 
 |1 3| |x1|   |2|  forward elimination  | 1 3| |x1|   |2|
-|   | |  | = | |  -------------------> |    | |  | = |2|
+|   | |  | = | |  -------------------> |    | |  | = | |
 |2 6| |x2|   |4|                       | 0 0| |x2|   |0|
 ```
 두 linear system 모두 2개의 linear equation 과 2개의 unknown 이 존재하기 때문에
 2 by 2 linear system 이다. 하지만 두 번째 linear system 을 forward elimination 한
-결과 첫 번째 linear equation 을 두 배하면 두 번째 linear equation 이 나오므로 실질적으로 
-하나의 linear equation 이 존재하는 것이나 다름없다. 이 경우 rank 가 1이라고 정의한 것이다.
+결과 첫 번째 linear equation 을 두 배하면 두 번째 linear equation 이 나오므로 **실질적으로 
+하나의 linear equation 이 존재**하는 것이나 다름없다. 이 경우 rank 가 1이라고 정의한 것이다.
+
+#### Notice Consistent / Inconsistent
+```
+Consistent)
+
+|1 3| |x1|   |2|  forward elimination  | 1 3| |x1|   |2|
+|   | |  | = | |  -------------------> |    | |  | = | |
+|2 6| |x2|   |4|                       | 0 0| |x2|   |0|
+```
+forward elimination 을 마친 마치막 linear equation 을 보면
+0x1 + 0x2 = 0 인 것을 알 수 있다. 이는 어떠한 x1, x2를 대입하여도
+만족하다는 의미이기 때문에 해가 무수히 많을 뿐 존재한다는 것을 알 수 있다.
+
+```
+Inconsistent)
+
+|1 3| |x1|   |2|  forward elimination  | 1 3| |x1|   |2|
+|   | |  | = | |  -------------------> |    | |  | = | |
+|2 6| |x2|   |5|                       | 0 0| |x2|   |1|
+```
+반면 forward elimination 을 마친 마치막 linear equation 을 보면
+0x1 + 0x2 = 1 다. 이는 어떠한 x1, x2를 대입하여도
+만족할 수 없는 의미이기 때문에 해가 존재하지 않는다는 것을 알 수 있다.
