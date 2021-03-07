@@ -236,7 +236,7 @@ r3 = x1 + 4 + 1 = 1 이므로 x1은 -4임을 바로 알 수 있다.
 ```
 최종적으로 column vector를 구한 상태이다.  
 
-### 가우스 소거법의 가치
+### 전방소거법의 가치
 1. 주어진 linear system 을 가장 풀기 쉬운 형태로 변형해준다.
 2. 주어진 linear system 의 rank 를 알려준다.
 3. linear system 에 해가 있는지 (consistent) 없는지 (inconsistent) 알려준다.
