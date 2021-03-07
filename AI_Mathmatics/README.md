@@ -204,6 +204,7 @@ r3에서 r1에 2를 곱하여 빼면 (1, 3)요소가 0으로 소거될 것이다
 |0  1  3| |x2| = |5|
 |0  0  1| |x3|   |1|
 ```
+계수행렬(row vector)이 상삼각형태(upper triangular form)로 변형된 모습다. 
 
 ### 후방대입법 예시
 ```
@@ -233,4 +234,33 @@ r3 = x1 + 4 + 1 = 1 이므로 x1은 -4임을 바로 알 수 있다.
 |0  1  3| | 2| = |5|
 |0  0  1| | 1|   |1|
 ```
-최종적으로 column vector를 구한 상태이다.
+최종적으로 column vector를 구한 상태이다.  
+
+### 가우스 소거법의 가치
+1. 주어진 linear system 을 가장 풀기 쉬운 형태로 변형해준다.
+2. 주어진 linear system 의 rank 를 알려준다.
+3. linear system 에 해가 있는지 (consistent) 없는지 (inconsistent) 알려준다.
+
+#### rank
+전방소거법(forward elimination)을 마친 row vector 가 주대각선의 1의 갯수이다.
+이것이 필요한 이유는?  
+예를 들어보자.
+```
+rank = 2)
+
+| 1 3| |x1|   |2|  forward elimination  | 1 3| |x1|   |2|
+|    | |  | = | |  -------------------> |    | |  | = |2|
+|-2 1| |x2|   |3|                       | 0 1| |x2|   |1|
+```
+
+```
+rank = 1)
+
+|1 3| |x1|   |2|  forward elimination  | 1 3| |x1|   |2|
+|   | |  | = | |  -------------------> |    | |  | = |2|
+|2 6| |x2|   |4|                       | 0 0| |x2|   |0|
+```
+두 linear system 모두 2개의 linear equation 과 2개의 unknown 이 존재하기 때문에
+2 by 2 linear system 이다. 하지만 두 번째 linear system 을 forward elimination 한
+결과 첫 번째 linear equation 을 두 배하면 두 번째 linear equation 이 나오므로 실질적으로 
+하나의 linear equation 이 존재하는 것이나 다름없다. 이 경우 rank 가 1이라고 정의한 것이다.
