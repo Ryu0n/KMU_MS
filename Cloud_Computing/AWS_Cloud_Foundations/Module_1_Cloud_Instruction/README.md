@@ -14,13 +14,49 @@
 
 ## 클라우드 서비스 모델
 다음 클라우드 서비스 모델은 IT 리소스 제어 능력을 높은 순에서 낮은 순으로 나열한다.
-1. IaaS
-2. PaaS
-3. SaaS
+1. IaaS (서비스형 인프라)  
+   최고수준의 유연성과 제어기능을 제공하는 모델이다. 이를테면, 네트워킹 기능과 가상 컴퓨터에 대한 액세스, 스토리지를 제공한다.  
+   ex) 아예 가상의 컴퓨터 한대를 제공해 준다고 생각하면 편하다..  
+   
+
+2. PaaS (서비스형 플랫폼)  
+   일반적으로 하드웨어나 운영체제와 관련이 있다. 자동화 기능을 통해 관리되므로 프로비저닝 작업이 아니라 애플리케이션을 통해 배포하고 관리하는데 집중할 수 있다.  
+   
+   
+3. SaaS (서비스형 소프트웨어)  
+   서비스 공급자에의해 실행되고 관리되는 완전한 제품을 고객에게 제공한다. 대부분의 경우 서비스형 소프트웨어는 최종 사용자 애플리케이션을 지칭한다.  
+   ex) 넷플릭스, colab, google docs, google sheet ..
+
+
 4. FaaS
 
+## 클라우드 컴퓨팅 배포 모델
+애플리케이션을 배포할 수 있는 환경을 의미한다.
+1. 클라우드 (퍼블릭 클라우드)  
+   클라우드 기반 애플리케이션은 모든 구성요소가 클라우드에 배포되는 구현 유형으로 클라우드에 완전히 배포된다.
+   애플리케이션의 모든 부분이 클라우드에서 실행된다. 클라우드 기반 애플리케이션은 클라우드에서 생성되거나 기존 인프라에서 클라우드로 마이그레이션된 경우이다.  
+   
 
+2. 하이브리드  
+   기존 인프라와 애플리케이션을 클라우드 기반 리소스에 연결하는 방식으로 배포된다. 즉, 클라우드에 존재하지 않고 물리적 시설에 존재한다.
+   하이브리드 모델의 일반적인 배포 방식은 클라우드와 기존 온프레미스 사이에 배포하는 것이다. 이렇게 하면 클라우드 리소스를 내부 시스템에 연결하는 동시에 구현 환경이 확장된다.  
+   
 
+3. 온프레미스 (프라이빗 클라우드)  
+   가상화 및 리소스 관리도구를 사용하여 온프레미스에 리소스를 배포하는 것을 프라이빗 클라우드라고 부른다.
+
+## AWS와 기존 IT의 유사
+<img width="918" alt="image" src="https://user-images.githubusercontent.com/32003817/110233237-027bed80-7f66-11eb-8d2f-792c55c34576.png">
+
+* 보안그룹은 방화벽(firewall)에 해당한다.
+* 네트워크 ACL 은 ACL (Access Control List)에 해당한다.
+* IAM(Identity and Access Management)은 사용자 프로비저닝과 유사하다.
+* Elastic Load Balancing 과 Amazon Virtual Private Cloud는 라우터, 네트워크 파이프라인, 스위치에 해당한다.
+* AMI(Amazon Machine Image는 Amazon EC2 instance를 초기화하는데 사용되며 이는 온프레미스 서버와 비슷한 역할을 한다.  
+* DAS (Direct Attached Storage) = Amazon EBS (Elastic Block Store)
+* Amazon EFS (Elastic File System) 은 가상머신에도 연결되지만 전통적인 SAN (Storage Area Network) 에 해당한다.
+* Amazon S3 (Simple Storage Service) 는 인터넷을 통해 파일을 저장할 수 있는 기능을 제공하며 NAS (Network Attached Storage)에 해당한다.
+* Amazon RDS (Relational Database Service) RDBMS (Relational DataBase Management System)에 해당한다.
 
 # 클라우드 컴퓨팅의 이점
 # AWS (Amazon Web Service) 소개
