@@ -110,7 +110,7 @@ JSON이나 XML과 같은 표준화된 형식을 사용한다.
    
 세 가지 방법 결국에는 모두 **REST API** 기반이다.
 
-# AWS CAF (Cloud Adoption Framework)
+## AWS CAF (Cloud Adoption Framework)
 AWS CAF는 조직이 전사적으로, 또한 IT 수명 주기 전반에 걸쳐 클라우드 컴퓨팅에 대한 포괄적인
 접근 방식을 구축하여 성공적인 클라우드 도입을 가속화하는데 도움이 되는 지침과 모범 사례를 제공한다.  
 
