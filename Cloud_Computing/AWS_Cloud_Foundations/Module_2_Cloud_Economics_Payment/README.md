@@ -12,7 +12,8 @@
 
 3. 데이터 전송
     * 아웃바운드 요금은 집계하여 청구
-    * 인바운드 전송은 무료, 저장도 무료
+    * 인바운드 전송은 무료, 저장도 무료  
+      (Amazon EC2에 대한 무료 인바운드 데이터 전송 / 모든 리전내의 AWS 서비스에서 인바운드 전송은 포함안됨)
     * 동일한 리전(지역)간 전송도 무료  
     * 일반적으로 GB당 청구
     
@@ -37,8 +38,15 @@ AWS 플랫폼, 제품 및 서비스를 무료로 체험할 수 있다. 신규 �
 * AWS CloudFormation**
 * AWS Identity and Access Management (IAM)  
 
-위의 서비스들은 무료로 제공되지만, **이 붙은 서비스들은 프로비저닝한 리소스와 관련된 비용이 발생할 수 있다.  
+위의 서비스들은 무료로 제공되지만, **이 붙은 서비스들은 프로비저닝한 리소스와 관련된 비용이 발생할 수 있다.
   ex) EC2 인스턴스를 자동으로 조정하는 경우 요금이 부과된다. 다만, Auto Scaling 서비스는 무료이다.
+
+##### Amazon EC2 Reserved Instances
+Amazone EC2 예약 인스턴스에 관한 자세한 설명은 아래 링크에서 확인  
+https://www.missioncloud.com/blog/optimizing-amazon-ec2-spend-ec2-purchasing-options-programs
+* No Upfront payment (NURI)
+* Partial Upfront Payment (PURI)
+* All Upfront Payment (AURI)
 
 ### 총 소유 비용
 #### TCO(총 소유 비용)이란?
@@ -74,6 +82,7 @@ TCO는 시스템의 직접 및 간접 비용을 확인하는 데 도움이 되�
    4-1. 서버 관리 비용  
 
 ### AWS 월 사용량 계산기
+모든 리전의 모든 서비스에 대한 요금을 합산한다. 월 사용량 계산기는 월별 서비스 비용을 예측하고 비용 절감 기회를 찾고 일반적인 배포 모델의 샘플을 사용하여 서비스 사용량과 관련 파라미터 또는 요금을 비교하는 데 도움이 되는 도구이다.
 http://calculator.s3.amazoneaws.com/index.html  
 
 월 사용량 계산기를 사용했을 때 이점
