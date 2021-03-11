@@ -83,6 +83,43 @@ http://calculator.s3.amazoneaws.com/index.html
 
 
 ### AWS Organizations
+비즈니스 규모에 따라 각 부서 또는 팀에 별도의 AWS 계정을 할당하는 편이 더 쉬울 수 있다. 
+각 그룹의 지출과 관련하여 사용 및 비용에 대한 명확하고 정의된 보고서를 확보할 수 있다.
+이 경우 개별 계정을 연결하는 서비스가 필요하다. 여러 계정의 통합 결제에 AWS Organizations를 사용한다.  
+
+#### 기능
+* 통합 결제 기능
+* 조직 보안 관리 기능
+   - AWS Identity and Access(IAM)를 사용하여 액세스를 제어
+   - IAM 정책을 사용하면 AWS 서비스에 대한 사용자, 그룹 및 역할의 액세스를 허용 및 거부할 수 있다.  
+     (사용자, 그룹에 대해서만 제한 / AWS 계정 자체를 제한하지 않음)
+   - SCP (Service Control Policy)를 사용하면 AWS 서비스에 대한 OU 내 개인 또는 그 계정의 액세스를 허용 및 거부할 수 있다.
+   
+* 계정 관리 기능
+   - 정책 기반 계정 관리
+   - 그룹 기반 계정 관리
+   - 계정관리를 자동화하는 API
+
+#### 용어 예시
+<img width="490" alt="image" src="https://user-images.githubusercontent.com/32003817/110788691-477b8900-82b2-11eb-95ab-f1ed4a7ea719.png">
+OU는 각 조직 단위를 의미하며, 조직의 계정들의 분기점이 된다. 각 계정은 하나의 OU에만 속할 수 있다.
+
+#### 단계별 설정
+1. 조직 생성  
+   현재 계정을 마스터 계정으로 사용하여 조직을 생성한다. 또한 하나의 AWS 계정을 초대하여 조직에 가입하고 다른 계정을 멤버 계정으로 생성한다.
+2. 조직 단위 생성  
+   새 조직에 2개의 OU를 생성하고 이러한 OU에 멤버 계정을 배치한다.
+3. 서비스 제어 정책 생성  
+   멤버 계정의 사용자 및 역할에 위임할 수 있는 작업에 대한 제한을 적용하는 데 사용할 서비스 제어 정책을 생성한다. 서비스 제어 정책은 조직 제어 정책의 한 유형이다.
+4. 제한 테스트  
+   OU1, OU2와 같은 각 역할에 대한 사용자로 로그인하고 서비스 제어 정책이 계정 액세스에 미치는 영향을 확인한다. 또는 IAM 시뮬레이터를 통해 AWS계정의 IAM사용자, 그룹 또는 역할에 연결된 리소스 기반 정책과 IAM을 테스트하고 문제를 해결할 수 있다.
+
+#### AWS Organizations 액세스
+* AWS Management Console
+* AWS CLI (Command Line Interface) Tool
+* SDK (Software Development Kit)
+* HTTPS Query API
+
 ### AWS Billing and Cost Management
 ### AWS 기술 지원 프랜 및 비용 개요
 
