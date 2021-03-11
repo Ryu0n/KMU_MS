@@ -159,3 +159,40 @@ AWS가 S3 버킷에 결제 보고서를 게시하도록 할 수 있다. 해당 �
   
 
 ### AWS 기술 지원 프랜 및 비용 개요
+#### AWS Support
+* Support Concierge  
+계정 지원이 필요한 경우에는 결제 및 계정 전문가인 Support Concierge에게 문의하여 결제 및 계정 문제를 빠르고 효율적으로 분석할 수 있다.  
+  
+* AWS Trusted Advisor  
+AWS 환경에서 모범 사례를 준수하도록 하려면 AWS Trusted Advisor를 사용하면 된다. AWS Trusted Advisor는 맞춤형 클라우드 전문가 같은 역할을 하는 자동화된 서비스이다.  
+
+* TAM (Technical Assistant Manager)
+사전 예방적 지침을 원하는 고객의 경우 AWS Support에서 고객의 기본 담당자로 지정된 기술 지원 관리자 즉, TAM(Technical Assistant Manager)에게 지원을 문의할 수 있다. 
+TAM은 지침, 아키텍처 검토 및 지속적 커뮤니케이션을 제공하여 솔루션의 계획, 배포 및 최적화를 위한 정보를 지속적으로 제공하고 필요한 준비를 지원한다. 
+기술 지원 관리자는 **Enterprise Support 플랜을 통해서만 이용할 수 있다.**
+
+#### AWS Support Plan
+AWS Support는 다음과 같은 4가지 지원 플랜을 제공한다.
+* Basic Support  
+  Resource Center 액세스, 서비스 상태 대시보드, 제품 FAQ, 토론 포럼 및 상태 확인 지원  
+  + Basic 플랜은 무료이며, 계정 및 결제 관련 질문 및 서비스 한도 증가에 대한 지원을 제공한다. 다른 플랜은 장기 계약 없이 월 정액 요금제로 기술 지원 사례를 무제한 제공한다.
+  
+
+* Developer Support  
+  AWS 기반 초기 개발 지원  
+  + Developer Support Plan을 보유한 고객은 모범 사례 지침, 클라이언트 측 진단 도구, 빌딩 블록 아키텍처 지원, AWS 제품, 기능 및 서비스를 유기적으로 활용하는 방법에 대한 지침을 비롯한 추가 기능에 액세스할 수 있다.
+
+  
+* Business Support  
+  프로덕션 워크로드를 실행하는 고객
+
+  
+* Enterprise Support  
+  비즈니스 및 미션 크리티컬 워크로드를 실행하는 고객
+  
++ Business Support Plan 혹은 Enterprise Support Plan의 경우 AWS Trusted Advisor에 대한 전체 액세스 및 사용 사례 지침을 비롯하여 고급 지원 기능에 액세스할 수 있다. 그리고, 지원 센터 및 Trusted Advisor와 상호 작용할 수 있는 API에 액세스할 수도 있다.
+이 API를 사용하면 지원 사례 관리 및 Trusted Advisor 작업을 자동화할 수 있다. Enterprise Support Plan에 한해 기술 계정 관리자, 화이트 글로브 사례 전달, 애플리케이션 아키텍처 지침, 관리 비즈니스 검토, 인프라 이벤트 관리 지원에 액세스할 수 있다.
+  
+#### 사례 심각도에 따른 Support Plan의 응답시간
+<img width="659" alt="image" src="https://user-images.githubusercontent.com/32003817/110860873-ab2ca300-8300-11eb-9b3a-12c0a19a3f39.png">
+
