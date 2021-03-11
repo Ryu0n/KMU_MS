@@ -121,6 +121,44 @@ OU는 각 조직 단위를 의미하며, 조직의 계정들의 분기점이 된
 * HTTPS Query API
 
 ### AWS Billing and Cost Management
+AWS Billing and Cost Management는 AWS 청구서를 결제하고 사용량을 모니터링하고 비용 예산을 책정하는 데 사용하는 서비스이다.
+향후 비용 및 사용량을 예측하고 파악하여 미리 계획을 세울 수 있다. 
+사용자가 지정기간을 설정하고 월별 또는 일별 세부 수준에서 데이터를 표시할지 여부를 결정할 수 있다.
+필터링 및 그룹화 기능을 사용하면 사용가능한 여러 차원을 사용하여 데이터를 추가로 분석할 수 있다. 
+AWS 비용 및 사용 보고서 도구를 사용하면 비용 및 사용량 데이터 추세와 AWS 구현의 사용 현황을 파악하여 최적화 기회를 파악할 수 있다.
+
+<img width="428" alt="image" src="https://user-images.githubusercontent.com/32003817/110793967-8f051380-82b8-11eb-9b20-df487fdbdb73.png">
+
+AWS 결제 대시보드에서는 당월 누계 AWS 비용 상태를 보고 전체 월별 청구서의 대부분을 차지하는 서비스를 식별할 수 있다.
+대시보드에 있는 그래프 중 하나는 Spend Summary(비용 요약)이다. Spend Summary에는 지난달의 지출 금액부터 이번 달 현재까지의 AWS 사용에 대한 예상 비용, 이번달의 예상 지출 금액 등이 표시된다.  
+
+또 다른 그래프는 Month-to-Date Spend by Service(서비스별 월-일 사용)로, 가장 많이 사용하는 최상위 서비스와 해당 서비스에 청구되는 비용의 비율을 보여준다.  
+
+#### 도구
+결제 대시보드에서 AWS 비용을 추정하고 계획하는 데 사용할 수 있는 다른 여러 비용 관리 도구에 액세스 할 수 있다.
+* AWS Bills Page(청구서 페이지)  
+<img width="428" alt="image" src="https://user-images.githubusercontent.com/32003817/110794608-439f3500-82b9-11eb-8ed0-7a5c42aff7b5.png">
+발생한 비용과 AWS 리전 및 연결 계정별 추가 내역이 나와있다. 이 도구를 사용하면 월 청구서 및 사용하는 AWS 서비스의 세부 내역을 포함하여 비용 및 사용량에 대한 최신 정보에 액세스 할 수 있다.  
+  
+
+ * AWS Cost Explorer
+<img width="428" alt="image" src="https://user-images.githubusercontent.com/32003817/110795340-0edfad80-82ba-11eb-948d-5ac1dd6d091c.png">
+AWS Billing and Cost Management 콘솔에는 AWS 비용 데이터를 그래프로 볼 수 있는 Cost Explorer 페이지가 있다. Cost Explorer를 사용하면 시간 경과에 따른 AWS 비용 및 사용량을 시각화하고 이해하고 관리할 수 있다.  
+   
+
+* AWS 예산 (AWS Budget)  
+<img width="659" alt="image" src="https://user-images.githubusercontent.com/32003817/110796339-2e2b0a80-82bb-11eb-954e-4de243b19d86.png">
+AWS Budget을 사용하여 해당 월의 예산을 초과하는 경우에 대한 알림을 생성할 수 있다. 예산은 월별 분기별 또는 연도별 수준에서 추적할 수 있고 사용자가 시작 및 종료날짜를 지정할 수 있다.
+예산 알림은 이메일 또는 Amazon Simple Notification Service(SNS)를 통해 전송될 수 있다.  
+  
+
+* AWS 비용 및 사용 보고서 (AWS Reports)  
+<img width="473" alt="image" src="https://user-images.githubusercontent.com/32003817/110796122-f3c16d80-82ba-11eb-8dd9-80c2ef3ae4d2.png">
+AWS 비용 및 사용보고서는 AWS 비용 및 사용량에 대한 포관적인 정보에 액세스할 수 있는 단일 위치이다. 이 도구는 계정 및 계정 사용자가 시간별 또는 일별 품목에서 사용하는 각 서비스 범주의 사용량과 세금 할당 목적으로 활성화한 모든 세금을 나열한다. 
+AWS가 S3 버킷에 결제 보고서를 게시하도록 할 수 있다. 해당 보고서는 하루에 한번만 업데이트 할 수 있다.
+
+
+
 ### AWS 기술 지원 프랜 및 비용 개요
 
 ## 데모
