@@ -72,3 +72,23 @@ AWS는 여러 ODM(Original Device Manufactures) 사용자 지정 네트워킹 �
   - 인적 개입 없음
 
 # AWS 서비스 및 서비스 범주 개요
+## AWS 기초 서비스
+![image](https://user-images.githubusercontent.com/32003817/111489302-5912d400-877d-11eb-9d39-34ed090b061e.png)
+
+AWS 글로벌 인프라는 세 가지 요소로 나눌 수 있다.
+1. 리전
+2. 가용영역
+3. 엣지 로케이션을 포함한 Points of Presence
+
+## AWS 서비스 범주
+![image](https://user-images.githubusercontent.com/32003817/111489553-937c7100-877d-11eb-93cb-f101b0b73d58.png)
+박스친 서비스들이 주로 클라우드 컴퓨팅 서비스에서 가장 널리 사용되는 것들이다.
+
+### 스토리지 서비스
+![image](https://user-images.githubusercontent.com/32003817/111489810-d1799500-877d-11eb-918f-6458c28f36b8.png)
+AWS 스토리지 서비스 범주는 확장성, 데이터 가용성, 보안 및 성능을 제공하는 객체 스토리지 서비스인
+Amazon S3가 대표적이다. 다음으로 Amazon EBS는 높은 처리량이 요구되는 트랜잭션 집약적 워크로드에 Amazon EC2와 함께 사용할 수 있다.
+Amazon EFS는 AWS 클라우드 서비스 및 온프레미스 리소스 내에서 사용할 수 있는 확장 가능하고 탄력적인 완전관리형 네트워크 파일 시스템 (NFS)를 제공한다.
+Amazon Simple Storage Service Glacier는 데이터 아카이빙 및 장기백업을 위한 안전하고 내구성이 높으며 비용이 매우 저렴한 AWS S3 클라우드 스토리지 클래스이다. 
+
+### 컴퓨팅 서비스  
