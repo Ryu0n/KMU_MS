@@ -60,6 +60,8 @@ VPC를 생성한 후에는 주소 범위를 변경할 수 없으므로 신중해
 IPv6 CIDR 블록을 VPC와 서브넷에 연결하고 그 블록에 속한 IPv6 주소를 VPC의 리소스에 할당할 수 있다.
 서브넷의 CIDR 블록은 VPC의 CIDR 블록과 동일할 수 있다. 즉, 서브넷이 전체 VPC와 동일할 수 있다. 하지만 자체 CIDR 블록이 있는 서브넷을 사용하여 VPC를 세분화할 수도 있다.
 이 같은 구조 덕분에 여러 개의 서브넷을 정의할 수 있다. VPC에 2개 이상의 서브넷을 만들 경우 서브넷의 CIDR 블록이 서로 중첩되지 않아야 한다. 동일한 VPC에 동일한 IP 주소가 존재해서는 안된다.  
+VPC 가장 작은 서브넷 크기 : /28  
+VPC에 구성할 수 있는 최대 IP 주소 범위 : /16
 
 ## 예약된 IP 주소
 ![img_7.png](img_7.png)  
@@ -258,7 +260,7 @@ VPC, AWS Direct Connect 게이트웨이 또는 VPN 연결을 Transit Gateway에 
    보안 그룹은 **허용 규칙**만 지원한다.
    
    
-2. 네트워크 액세스 제어 목록 (Network Access Control List)
+2. 네트워크 액세스 제어 목록 (Network Access Control List) - **선택적**
    ![img_22.png](img_22.png)  
    NACL은 서브넷 수준에서 작동하며 서브넷에서 송수신되는 트래픽을 제어한다. **포트 및 프로토콜**을 설정할 수 있다.  
    ![img_23.png](img_23.png)  
