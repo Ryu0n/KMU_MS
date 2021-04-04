@@ -80,6 +80,53 @@ p2는 NAND 게이트 역할을 하여 2번 선형함수의 아래면적을 의�
 p2의 가중치 matrix는 (1.5, -1.0, -1.0)이다. 그리고 (b)그림을 보면 x1, x2축의 좌표계를
 z1, z2축으로 변환하여 고차원의 데이터를 단순하게 추상화한 것이다. 여기서 불필요한 정보는 빠지기 마련이다.
 
+# Backpropagation (역전파)
+DNN (Deep Neural Network)는 은닉층을 거쳐가며 output을 조합 혹은 활성화시켜 결과를 도출해낸다. (이 과정을 propagation라고 한다.)
+하지만 이 결과가 언제나 옳을 수 없기 때문에 역전파 과정을 통해 각 input이 Loss function에 미치는 영향을 파악한다.
+우리는 input과 Loss function 사이의 관계를 파악하여 이를 조정하고 모델의 성능을 높여야한다. 이 과정은 **편미분**을 통해 이전 계층의 퍼셉트론으로부터
+다음 계층의 퍼셉트론으로 끼치는 영향을 파악하는 것이 목적이다.
+![img_12.png](img_12.png) 
+우리가 알고싶은 것은 input이 Loss function에 미치는 영향이다. 이 과정을 편미분을 통해 수식화 하면 다음과 같다.  
+local gradient는 input이 output에 미치는 영향이고, output gradient는 도출된 결과가 Loss function에 미치는 영향을 의미한다. 
+
+지금부터 backpropagation의 연산을 하나씩 살펴볼 것이다.
+
+
+* Fanout Operation
+![img_17.png](img_17.png)  
+  Add Operation과 상반되는 효과가 있다. 역으로 전파될 때 역전파들이 합쳐지는 효과가 있다.
+  
+
+* Add Operation
+![img_13.png](img_13.png)  
+  덧셈 연산은 해당 input 이외에 다른 input들은 편미분에 의해 상수로 취급되어 소거되므로 최종적으로 local gradient는 1이 된다.
+  local gradient * output gradient = output gradient 의 전파가 역으로 전달된다. (브로드 캐스팅의 효)
+  
+
+* Multiply Operation
+![img_14.png](img_14.png)  
+곱셈 연산은 해당 input으로 편미분하면 계수만 남아 다른 input만 남게된다.  
+고로, output gradient * 다른 input의 결과가 역으로 전달된다.
+
+
+* Max Operation
+![img_15.png](img_15.png)  
+  예를들어 in1이 최대값이라면 output은 in1일 것이다. in1로 미분하면 local gradient는 1이 될 것이지만, 
+  다른 in으로 미분하면 상수취급 하여 0이 될것이다. 고로 최대값으로부터 온 퍼셉트론의 신호만 output gradient * 1의 결과를 도출하고,
+  나머지 신호들은 0이 될 것이다.
+  
+
+* Sigmoid Operation
+![img_16.png](img_16.png)  
+  합성함수 미분이 키포인트이다. 
+  
+
+* 예시
+![img_18.png](img_18.png)
+  첫 번째 연산인 Add Operation에 의해 브로드 캐스팅 효과가 일어난다.  
+  두 번째 연산인 Multiply Operation에 의해 다른 input이 local gradient로써 output gradient에 곱해져서 전달된다.  
+  세 번째 연산인 Fanout Operation에 의해 Sigma로 모여진다.  
+  네 번째 연산인 Sigmoid에 의해 Sigmoid function의 미분함수가 local gradient로써 곱해진다.
 
 # 참고
 ## 경사하강법 (Gradient Descent)
