@@ -128,6 +128,33 @@ local gradient는 input이 output에 미치는 영향이고, output gradient는 
   세 번째 연산인 Fanout Operation에 의해 Sigma로 모여진다.  
   네 번째 연산인 Sigmoid에 의해 Sigmoid function의 미분함수가 local gradient로써 곱해진다.
 
+# CNN (Convolutional Neural Network)
+![img_19.png](img_19.png)  
+기존의 MLP (Multi Layer Perceptron) 신경망은 퍼셉트론 사이에 완전 연결된 Fully-connected 형태를 띄고 있었다.
+이런 구조의 단점은 레이어가 깊어질수록 발생되는 신호가 **기하급수적으로 늘어나** 학습해야할 가중치가 늘어나는 단점이 존재한다.
+그래서 학습 데이터를 강하게 학습하는 효과가 나타나 오버피팅 현상이 존재한다. 이를 방지하기 위해 CNN 에서는 **Dropout 기법을 통해
+임의의 연결을 랜덤하게 끊어서 학습하고 추론과정에서 다시 Fully-connected 상태에서 오버피팅을 방지**한다.  
+
+CNN의 구조에 대해 알아보겠다. 기본적으로 CNN은 **선형함수인 Convolution과 비선형함수인 Activation function으로 이루어진 Convolution Layer**와
+특징을 부각 및 압축시키기 위한 Pooling Layer (Max pooling, ..)가 존재한다.  
+
+## Convolution
+![img_20.png](img_20.png)  
+Convolution은 이전의 MLP와 다르게 완전 내적(다음 레이어의 퍼셉트론이 이전 레이어의 퍼셉트론으부터 모든 신호를 내적)이 아닌
+부분 내적(연결된 신호만 내적)을 수행한다. 이는 속도와 오버피팅 문제를 해결할 수 있다. 그리고, 사진이나 동영상같은 Grid structure 데이터는
+지역성(locality)가 존재하기 때문에 가능한 것이다. 여기서 말하는 지역성은 인접한 픽셀사이의 연관 관계가 있을 가능성이 큰 것을 의미한다.  
+
+## Activation function
+활성함수는 퍼셉트론의 신호 입력으로부터 출력 신호를 결정하기 위한 임계치 함수이다. 활성함수의 종류는 Sigmoid, ReLU, tanh, leaky ReLU 등 다양하다.
+Sigmoid의 단점을 설명하자면, propagation 관점에서 sigmoid function은 값이 1에 도달하지 않고 1에 수렴하는 값이므로 레이어를 거쳐갈때마다 신호가 약해져서 
+신호가 결국 사라지는 현상이 발생한다. backpropagation 관점에서 보면 input gradient는 local gradient * output gradient 이다.
+activation function이 sigmoid function일 때 local function은 sigmoid의 미분 값인데 ..  
+![img_21.png](img_21.png)  
+sigmoid function의 기울기가 0에 수렴하므로 local gradient가 사라지는 현상이 발생한다. 고로 backpropagation도 결국에는 의미가 없어진다. 이를 해결하기 위해
+ReLU function을 사용한다.  
+![img_22.png](img_22.png)  
+ReLU function은 발산하는 형태를 띄므로 0에 수렴하는 일도 없고 기울기 또한 Sigmoid 처럼 0에 갈 일이 없기 때문에 많이 사용된다.
+
 # 참고
 ## 경사하강법 (Gradient Descent)
 Loss function을 weight로 미분한 값은 w가 움직이는 양에 비례 혹은 반비례하게 L이 움직이는 값이다.
