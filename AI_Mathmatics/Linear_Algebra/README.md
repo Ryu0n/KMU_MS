@@ -885,3 +885,5 @@ Ax = b라는 선형시스템이 주어졌을 때, b 벡터가 열공간 내에 �
 ![img_48.png](img_48.png)  
 우리는 직선을 그을 때 **y = mx + b**라고 표현한다. 그리고 각 점이 Ax = b 형의 linear system을 지난다고 가정하고 linear system을 구성한다.
 
+### 최소제곱법 증명
+![img_49.png](img_49.png)
