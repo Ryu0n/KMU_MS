@@ -477,3 +477,22 @@ Lambda 함수의 실행당 실행시간은 최대 15분까지 설정할 수 있�
 하드 제한은 늘릴 수 없다.
 
 ## AWS Elastic Beanstalk
+![img_47.png](img_47.png)  
+Elastic Beanstalk는 AWS 컴퓨팅 서비스의 또 다른 옵션이다. 이 서비스는 AWS 클라우드에서 웹 애플리케이션을 쉽게 시작하고 실행할 수 있는 방법을 제공한다.
+AWS Elastic Beanstalk는 인프라 프로비저닝 및 구성, 배포, 로드 밸런싱, 자동 조정, 상태 모니터링, 분석 및 디버깅과 로깅을 자동으로 처리한다.
+코드를 업로드하면 Elastic Beanstalk가 용량 프로비저닝부터 로드 밸런싱, 자동 조정 애플리케이션 상태 모니터링에 이르는 전체 배포를 자동으로 처리한다.  
+
+### AWS Elastic Beanstalk 배포
+![img_48.png](img_48.png)  
+AWS Elastic Beanstalk에서는 AWS Management Console, AWS Command Line Interface Visual Studio 또는 Eclipse를 통해 코드를 배포할 수 있다.
+AWS Elastic Beanstalk는 널리 사용되는 여러 애플리케이션 웹 서버에 코드를 배포한다.  
+
+### Elastic Beanstalk의 이점
+![img_49.png](img_49.png)  
+Elastic Beanstalk는 크게 확장하기는 어렵다. 애플리케이션에서 워크로드 또는 트래픽의 피크를 처리해야 하는 경우 
+조정이 간편한 자동 조정 설정을 사용하여 애플리케이션의 특정 요구 사항에 따라 애플리케이션을 자동으로 확장하고 축소한다.
+CPU 사용률 지표를 사용하여 자동 조정 작업을 트리거 할 수 있다.   
+Elastic Beanstalk를 사용하면 Amazon EC2 인스턴스 유형 등 애플리케이션에 최적인 AWS 리소스를 자유롭게 선택할 수 있다. 
+Elastic Beanstalk를 사용하면 애플리케이션을 구동하는 AWS 리소스를 완벽하게 제어할 수 있다. 인프라 요소의 일부 또는 전체를 제어하고 싶다면 
+Elastic Beanstalk에서 제공되는 관리 기능을 사용하면 된다. 
+
