@@ -28,42 +28,42 @@ ex) 전교생의 키를 분석할 때 160~170 사이의 학생이 몇 명이 존
 
 ### 표현방법
 * 도수분포표 (Frequency Distribution Table) - 질적 데이터  
-  ![img.png](img.png)  
+  ![img.png](images/img.png)  
   각 범주의 데이터가 몇번 발생했는지를 표시  
 * 막대그래프 (Bar graph) - 질적 데이터  
-  ![img_1.png](img_1.png)  
+  ![img_1.png](images/img_1.png)  
   범주로 구분  
   ex) 남자와 여자, 소설책의 분류
 * 히스토그램 (Histogram) - 양적 데이터  
-  ![img_2.png](img_2.png)  
-  ![img_3.png](img_3.png)  
+  ![img_2.png](images/img_2.png)  
+  ![img_3.png](images/img_3.png)  
   숫자의 **구간**으로 구분, 구간을 먼저 설정해야 한다.  
   ex) 남학생의 키
   
 * 줄기-잎 그림 (Stem and Leaf Diagram) - 양적 데이터  
-  ![img_4.png](img_4.png)  
+  ![img_4.png](images/img_4.png)  
   앞부분은 stem (구간의 역할을 하는 줄기), 뒷부분은 leaf (해당 구간의 세부데이터 역할을 하는 잎)  
   ex) 16이라는 구간은 18전까지를 의미한다. (1.6~1.7)
 
 ## 상대도수 (Relative Frequency)
-![img_5.png](img_5.png)  
+![img_5.png](images/img_5.png)  
 위 그림에서 도수의 총합은 54이다. 도수를 상대도수로 표현하면 다른 도수와의 비율을 상대적으로 파악하기 쉽다.
 
 ## 평균 (Mean)
-![img_6.png](img_6.png)  
-![img_7.png](img_7.png)  
+![img_6.png](images/img_6.png)  
+![img_7.png](images/img_7.png)  
 평균은 **모평균**과 **표본평균**으로 나눌 수 있다. 
 모평균은 모집단으로부터 추출한 평균값을 의미하고, 
 표본평균은 모집단으로부터 추출한 표본집단의 평균값을 의미한다.
 
 ## 중앙값 (Median)
-![img_9.png](img_9.png)  
+![img_9.png](images/img_9.png)  
 평균값은 **극단적으로 크거나 작은 값에 영향을 많이 받는다.** 이러한 단점을 보완할 수 있는 개념이 중앙값이다.
 데이터의 수가 짝수개일 경우 n/2번째 값과 n/2+1번째 값의 중앙값이 된다.  
 데이터의 수가 홀수개일 경우 (n+1)/2번째 값이 된다.
 
 ## 분산 (Variance)
-![img_10.png](img_10.png)  
+![img_10.png](images/img_10.png)  
 값이 어느정도 퍼저있는 지를 **산포**라고 표현한다. 산포를 정량적으로 표현할 수 있는 방법이 **분산**이다.  
 표본분산에 n-1을 나누는 이유 : https://m.blog.naver.com/95khc/220282362093  
 

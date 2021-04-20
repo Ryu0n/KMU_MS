@@ -593,17 +593,17 @@ x1*0 + x2*0 + x3*0 = -3 을 만족할 수 없다.
 -> 열 공간은 Ax = b 선형시스템에서 행렬 A로 b를 도출해낼 수 있는 행렬 A의 조합(경우)을 의미한다.
 
 * 열 공간 표기  
-  ![img.png](img.png)  
+  ![img.png](images/img.png)  
   
 
 * Consistent Linear System  
   선형시스템 Ax = b가 해를 가지면(consistent) 다음을 만족한다.  
-  ![img_1.png](img_1.png)
+  ![img_1.png](images/img_1.png)
   
 
 * Inconsistent Linear System  
 선형시스템 Ax = b가 해가 없으면(inconsistent) 다음을 만족한다.    
-  ![img_2.png](img_2.png)
+  ![img_2.png](images/img_2.png)
   
 ```
     |-1  3  2|
@@ -635,10 +635,10 @@ a1 = | 1| a2 = | 2| a3 = |-3|
 따라서 xy-평면을 벗어난 3-벡터 b를 이용해 선형시스템 Ax = b를 구성하면
 해당 선형시스템의 해는 존재하지 않난다.
 ```
-![img_3.png](img_3.png)  
+![img_3.png](images/img_3.png)  
 z값이 0인 열벡터 리스트
 
-![img_4.png](img_4.png)  
+![img_4.png](images/img_4.png)  
 그림과 같이 3-벡터 b가 xy-평면상에 놓여있을 경우에만 해(x)가 존재한다.
 
 # 좌표계 변환 (Change of Basis) : 좌표계 :: 좌표값 = 행렬 :: 벡터
@@ -664,12 +664,12 @@ v = | | = |   || | = a| | + b| |
     |b|   |0 1||b|    |0|    |1|
 ```  
 
-![img_5.png](img_5.png)  
+![img_5.png](images/img_5.png)  
 좌표계는 반드시 직교할 필요는 없다. 위 그림처럼 v1 방향벡터와 v2 방향벡터를 좌표계로써 설정할 수 있다.
 이 좌표계에서 (4, 3) v 벡터는 v1 축(방향)으로 4번, v2 축(방향)으로 3번을 이동한 것이다.  
 (**v = 4v1 + 3v2**)  
 
-![img_6.png](img_6.png)
+![img_6.png](images/img_6.png)
 v 벡터를 직교좌표계로 평행이동 했다고 가정해보자. 해당 벡터를 직교 좌표계에 대입한 결과 i축 방향으로 8번, j축 방향으로 6.5번에 해당하는 좌표가 나왔다.
 이로써 좌표계에 따라 해당 벡터는 다른 좌표값을 가지고 있다는 것을 알 수 있다.  
 (**v = 8i + 6.5j**)  
@@ -691,20 +691,20 @@ v 벡터를 직교좌표계로 평행이동 했다고 가정해보자. 해당 �
 v1과 v2를 기저(basis)로 가지는 좌표계        =    e1(1, 0)과 e2(0, 1)을 기저(basis)로 가지는 좌표계
 ```
 
-![img_7.png](img_7.png)  
+![img_7.png](images/img_7.png)  
 실제로 임의의 좌표계를 그려보면 다음과 같이 표현할 수 있다.
 빨간색 열 벡터를 직교좌표계 기준으로 그려보면 (1, 2)의 벡터를 얻을 수 있다.
 파란색 열 벡터를 직교좌표계 기준으로 그려보면 (-1, 2)의 벡터를 얻을 수 있다. 
 두 열 벡터를 좌표계의 축으로 적용시킬 수 있다.
-![img_8.png](img_8.png)    
+![img_8.png](images/img_8.png)    
 
-![img_9.png](img_9.png)  
+![img_9.png](images/img_9.png)  
 **역행렬을 통해 해를 구하는 것도 좌표계 변환으로 해석**할 수 있다.  
 
-![img_10.png](img_10.png)  
+![img_10.png](images/img_10.png)  
 xy-직교좌표계 기준에서 임의의 좌표계를 바라보면 다음과 같이 보일 것이다. 하지만..  
 
-![img_11.png](img_11.png)  
+![img_11.png](images/img_11.png)  
 역행렬을 통해 xy-직교좌표계에서의 해를 구한다고 가정할 때에 임의의 좌표계는 그림처럼 빨간색, 파란색 축이 직교좌표계처럼 보일 것이고, 
 실제 x, y축은 역행렬에 의해 (1/2, -1/2), (1/4, 1/4) 벡터로 보일 것이다. (상대적인 개념)  
 
@@ -714,10 +714,10 @@ xy-직교좌표계 기준에서 임의의 좌표계를 바라보면 다음과 �
 행렬을 **함수**로 보자는 관점이다.  
 
 ## 함수에 대한 리뷰
-![img_12.png](img_12.png)  
+![img_12.png](images/img_12.png)  
 두 집합(Domain:정의역, Codomain:공역)간의 **1대 1 매핑관계**를 함수라고 정의한다.  
 
-![img_13.png](img_13.png)  
+![img_13.png](images/img_13.png)  
 
 ## 선형함수 (Linear function)
 선형함수를 만족하기 위한 두 가지 조건이 있다.
@@ -726,57 +726,57 @@ xy-직교좌표계 기준에서 임의의 좌표계를 바라보면 다음과 �
 
 ## 선형변환 : 행렬은 선형변환의 구현체
 ### 변환 (Transformation)
-![img_14.png](img_14.png)  
+![img_14.png](images/img_14.png)  
 **입력과 출략이 벡터인 함수**를 function이라는 표현보다 transformation이라는 표현을 사용한다. 
 그러나 **벡터의 입출력 차원**이 같을 경우 연산자(Operator)라고 한다. gradient descent 도 operator의 일종이다.  
 
 R^28x28의 의미는 MNIST의 각 픽셀이 그레이스케일 (0~255)사이의 숫자들로 28 x 28로 이루어진 것을 의미한다.
 즉, R은 Real number로 0~255 사이의 실수를 의마한다. 출력값으로 R^10이 나오는데 이것은 0~9사이의 숫자(10개의 숫자)가 맞을 확률을 의미한다.  
 
-![img_15.png](img_15.png)  
+![img_15.png](images/img_15.png)  
 행렬의 특성은 선형함수의 특징을 만족한다. 고로 행렬변환은 선형변황과 동치관계에 있다. 선형변환을 표현하기에 가장 적합한 자료구조가 행렬이기에 
 행렬은 선형변환의 구현체이기도 하다.
 
 ## 선형변환 코딩하기
 특정 기능을 하는 행렬(함수역할을 하는 linear transform)을 프로그래밍의 형태로 코딩한다.  
-![img_16.png](img_16.png)  
-![img_17.png](img_17.png)  
+![img_16.png](images/img_16.png)  
+![img_17.png](images/img_17.png)  
 표준기저벡터는 x, y, z 축에 대한 단위벡터를 의미한다. 즉, 항등행렬(Identity matrix)의
 각 열벡터를 의미한다. 두 가지 예를 들어보자.  
 
 1. 2차원 벡터를 받아 x축에 프로젝션하는 linear transform을 구현해보자.
-![img_18.png](img_18.png)  
+![img_18.png](images/img_18.png)  
 표준기저벡터 i를 x축에 projection할 때 결과는 (1, 0)이 나올 것이다.  
 표준기저벡터 j를 x축에 projection할 때 결과는 (0, 0)이 나올 것이다.  
 고로 두 열벡터를 쌓아서 [[1, 0], [0, 0]] 형태의 선형변환을 구현할 수 있다.  
    
 
 2. 2차원 벡터를 입력으로 받아 해당 벡터를 반시계 방향으로 theta만큼 움직이는 linear transform을 구현해보자.
-![img_19.png](img_19.png)  
+![img_19.png](images/img_19.png)  
 표준기저벡터 i를 theta만큼 반대로 회전시킬 때 결과는 (cos(-theta), sin(-theta))이 나올 것이다.  
 표준기저벡터 j를 theta만큼 반대로 회전시킬 때 결과는 (cos(90-theta), sin(90-theta))이 나올 것이다.  
 고로 두 열벡터를 쌓아서 [[cos(-theta), cos(90-theta)], [sin(-theta), sin(90-theta)]] 형태의 선형변환을 구현할 수 있다.  
    
 # 벡터
-![img_20.png](img_20.png)  
+![img_20.png](images/img_20.png)  
 벡터는 크기(스칼라)와 방향을 지닌 물리량으로 정의된다.  
 벡터의 크기는 각 요소의 제곱의 합, 방향은 해당 벡터 요소를 벡터의 크기로 나눈다(길이가 1인 방향을 지닌 단위벡터로써).  
 
 ## 벡터의 내적
-![img_21.png](img_21.png)  
+![img_21.png](images/img_21.png)  
 두 벡터의 길이곱과 cos(theta)를 하게 되면 최종적으로 스칼라 형태의 산출물이 나온다. 내적은 코사인 법칙을 사용하여 유도할 수 있다.
-![img_22.png](img_22.png)  
+![img_22.png](images/img_22.png)  
 theta가 90도일 경우 코사인 값은 0을 띄기 때문이다.
 
 # SVD (Singular Value Decomposition)
 ## 행렬분해
-![img_23.png](img_23.png)  
+![img_23.png](images/img_23.png)  
 확대축소 : 각 축에 대해 확대, 축소  
 차원변환 : 선형시스템은 m x n 행렬 A와 n x 1 행렬 x가 곱해져 m x 1 행렬 b가 나온다.
 즉, n x 1 행렬을 input으로 하여 m x 1 행렬이 output으로 나와 차원이 변하는 것을 의미한다.
 
 ## 특이값 분해
-![img_24.png](img_24.png)  
+![img_24.png](images/img_24.png)  
 행렬은 오른쪽에서 왼쪽으로 읽어야한다. (연산되는 순서가 오른쪽에서 왼쪽)  
 V : 직교행렬  
 D : Diagonal 이외의 요소는 0, 각각의 축에대해 얼마나 확대 및 축소가 되는지 알려준다. 정렬되어 있는 상태 (대각선의 첫번째 요소가 가장 확대축소 범위가 크다. 내림차순)
@@ -785,45 +785,45 @@ U : 직교행렬
 정리 : n차원에서 회전 -> 확대/축소 -> m차원에서 회전  
 
 ## SVD 예제
-![img_25.png](img_25.png)  
-![img_26.png](img_26.png)  
+![img_25.png](images/img_25.png)  
+![img_26.png](images/img_26.png)  
 
 ## SVD 활용
-![img_27.png](img_27.png)  
+![img_27.png](images/img_27.png)  
 D 행렬의 요소중 가장 큰 대각선의 요소와 U, V 행렬에서 그에 상응하는 벡터를 뽑아서 내적 연산을 수행하면
 원래 행렬과 같은 모양의 행렬이 나오게된다. 이 행렬은 가장 강한 반응성 (가중치가 높은) 요소끼리의 연산을 수행한 결과이므로
 가중치가 높은 특징을 걸러낼 수 있다.  
 
-![img_28.png](img_28.png)
+![img_28.png](images/img_28.png)
 
 # PCA (주성분분석, Principal Component Analysis)
 주성분분석은 다수의 n차원 데이터에 대해, 데이터의 중심으로부터 데이터의 응집력이 좋은
 n개의 직교방향을 분석하는 방법이다.  
-![img_29.png](img_29.png)  
+![img_29.png](images/img_29.png)  
 위와 같이 2차원 공간에 데이터가 있다고 가정해보자. x, y축으로써 데이터를 표현하는 것보다
 데이터의 중심으로부터 원점을 지정하고, 빨간색 축의 방향으로 응집력이 강하고, 파란색 축은 상대적으로 약하지만
 빨간색 축과 직교해있으면 데이터를 표현하기 쉬울 것이다.  
 
-![img_30.png](img_30.png)  
+![img_30.png](images/img_30.png)  
 만약 파란색 축의 데이터가 중요하지 않고 빨간색 축의 데이터만 반영하고 싶을 때는 데이터들을
 빨간색 축에 projection하면 된다.  
 
-![img_31.png](img_31.png)  
-![img_32.png](img_32.png)  
+![img_31.png](images/img_31.png)  
+![img_32.png](images/img_32.png)  
 우선 데이터들의 평균 m을 구한다.  
 
-![img_33.png](img_33.png)  
+![img_33.png](images/img_33.png)  
 파란색 벡터를 구한다. 특정 데이터 xi가 있다면 파란색 벡터는 (xi - m)이 된다.
 그리고 파란색 벡터를 행렬화 하기 위해 해당 벡터의 transpose를 곱한다. 이렇게 나온 모든 파란색 행렬들의 평균을 **공분산 행렬**이라고 하며
 공분산 행렬은 **데이터의 분산**(평균으로부터 퍼져있는 정도)을 의미한다.  
 
-![img_34.png](img_34.png)  
+![img_34.png](images/img_34.png)  
 매커니즘은 SVD와 비슷하다. 하지만 다른점이 있다면 공분산 행렬은 자기 자신벡터(파란색 벡터)를 행렬화한 것이므로
 정방행랼이 나온다.  
 W : 정규직교행렬이기에 각 벡터들의 길이는 1, 내적하면 0이 나온다. 
 
 ## PCA 활용
-![img_35.png](img_35.png)  
+![img_35.png](images/img_35.png)  
 여기서는 편의상 평균 m이 원점이라고 가정한다. 각 데이터로 향하는 벡터 xi와 평균 벡터(여기서는 (0, 0))의 차들의 합에 데이터 갯수를 나누면 공분산 행렬이 나온다.  
 빨간색 열벡터와 파란색 열벡터는 서로 직교하는 길이가 1인 정규직교벡터이다.
 
@@ -840,8 +840,8 @@ e.g) {수학, 3.14, (1, 2), 강아지}
 ### 연산에 닫혀있는 집합
 '집합이 연산에 닫혀있다' 라는 개념이 있다. 어떤 연산을 생각한 다음, 집합에서 임의의 원소를 뽑아 연산을 수행한 결과가 여전히 집합의 원소로 있다면,
 해당 집합은 연산에 닫혀있다. 즉, 집합내의 어떤 요소들끼리 특정 연산을 취해도 출력은 결국 그 집합의 원소일 때..  
-e.g) ![img_36.png](img_36.png) 덧셈 연산에 닫혀있는 집합  
-e.g) ![img_37.png](img_37.png) 곱셈 연산에 닫혀있는 집합  
+e.g) ![img_36.png](images/img_36.png) 덧셈 연산에 닫혀있는 집합  
+e.g) ![img_37.png](images/img_37.png) 곱셈 연산에 닫혀있는 집합  
 
 ### 공간 (space)
 공간은 다음의 두 연산에 닫혀있는 집합이다.
@@ -849,41 +849,41 @@ e.g) ![img_37.png](img_37.png) 곱셈 연산에 닫혀있는 집합
 * 스칼라 곱 : 집합에서 임의의 한 원소 x를 뽑아 임의의 스칼라 s배 한 결과 sx는 집합의 원소  
 
 다음과 같이 n-벡터의 집합은 모두 공간이다.  
-![img_38.png](img_38.png)  
-모든 n-벡터 집합 ![img_39.png](img_39.png) 은 n차원 벡터 공간 (vector space)라 부를 수 있다.  
+![img_38.png](images/img_38.png)  
+모든 n-벡터 집합 ![img_39.png](images/img_39.png) 은 n차원 벡터 공간 (vector space)라 부를 수 있다.  
 
 ### 열공간 (column space)
 행렬 A의 열벡터들에 대한 가능한 모든 선형조합의 결과를 모아 집합으로 구성할 수 있을 것이다.
 이들 집합을 column space라 하고 다음과 같이 표기한다.  
-![img_40.png](img_40.png)  
-![img_41.png](img_41.png)  
+![img_40.png](images/img_40.png)  
+![img_41.png](images/img_41.png)  
 행렬 A의 열 벡터들을 파란색 m-벡터 n개라고 가정하고, xn은 노락색 n-벡터라고 가정하자.
 노란색 벡터가 내적 연산이 수행될 때 파란색 벡터 이룰 수 있는 공간이다.  
 
-![img_42.png](img_42.png)  
+![img_42.png](images/img_42.png)  
 Ax = b라는 선형시스템이 주어졌을 때, b 벡터가 열공간 내에 존재하면 임의의 xn을 행렬 A와 조합하여 해가 존재한다.
 하지만, b 벡터가 열공간 밖에 존재하면 어떤 xn을 행렬 A와 조합하여도 해를 낼 수 없다. 이러한 상황에서도 해를 구하는 것이 최소제곱법이다.
 
 ## 최소제곱법 (least squares method)
 선행시스템 Ax = b에 대한 해가 없음에도 불구하고, 우리가 할 수 있는 최선이 무엇인가를 생각해보자.  
-행렬 A가 전의하는 열공간에서 우리의 목표 b와 가장 가까운 지점은 b를 열공간에 투영한 저점일 것이다. 즉, 달성가능한 최선의 목표 ![img_43.png](img_43.png)를 생각할 수 있다.  
-![img_44.png](img_44.png)  
+행렬 A가 전의하는 열공간에서 우리의 목표 b와 가장 가까운 지점은 b를 열공간에 투영한 저점일 것이다. 즉, 달성가능한 최선의 목표 ![img_43.png](images/img_43.png)를 생각할 수 있다.  
+![img_44.png](images/img_44.png)  
 그럼 어떻게 가장 근접한 벡터를 찾을 것인가?  
-**실제 b 벡터와 투영된 ![img_43.png](img_43.png) 벡터 사이의 거리의 제곱이 최소**가 되도록 해야한다.  
+**실제 b 벡터와 투영된 ![img_43.png](images/img_43.png) 벡터 사이의 거리의 제곱이 최소**가 되도록 해야한다.  
 
 ### 정리
-![img_45.png](img_45.png)
+![img_45.png](images/img_45.png)
 
 ### 풀이법
-![img_46.png](img_46.png)  
-결론부터 말하면 양변에 행렬 A의 전치행렬을 곱하면 ![img_43.png](img_43.png)에 도달할 수 있는 xn (근접해)를 구할 수 있다.
+![img_46.png](images/img_46.png)  
+결론부터 말하면 양변에 행렬 A의 전치행렬을 곱하면 ![img_43.png](images/img_43.png)에 도달할 수 있는 xn (근접해)를 구할 수 있다.
 
 ### 최소제곱법의 응용 : 선형회귀 (Linear Regression)
-![img_47.png](img_47.png)  
+![img_47.png](images/img_47.png)  
 위 그림에서 4개의 점을 모두 통과하는 선은 그릴 수 없다고 가정하고, 선형회귀는 가장 근접한 선을 긋는 것이 목적이다.
 
-![img_48.png](img_48.png)  
+![img_48.png](images/img_48.png)  
 우리는 직선을 그을 때 **y = mx + b**라고 표현한다. 그리고 각 점이 Ax = b 형의 linear system을 지난다고 가정하고 linear system을 구성한다.
 
 ### 최소제곱법 증명
-![img_49.png](img_49.png)
+![img_49.png](images/img_49.png)
