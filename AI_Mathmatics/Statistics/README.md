@@ -68,14 +68,14 @@ ex) 전교생의 키를 분석할 때 160~170 사이의 학생이 몇 명이 존
 표본분산에 n-1을 나누는 이유 : https://m.blog.naver.com/95khc/220282362093  
 
 ## 표준편차 (Standard Deviation)
-![img.png](img.png)  
+![img.png](images/img_11.png)  
 
 ## 범위 (Range)
-![img_1.png](img_1.png)  
+![img_1.png](images/img_12.png)  
 
 ## 사분위수 (Quartile)
-![img_2.png](img_2.png)  
-![img_3.png](img_3.png)  
+![img_2.png](images/img_13.png)  
+![img_3.png](images/img_14.png)  
 
 # z-score
-![img_4.png](img_4.png)
+![img_4.png](images/img_15.png)

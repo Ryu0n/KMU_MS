@@ -21,7 +21,7 @@ print(statistics.median(b))  # 홀수개일 경우 값이 정확히 맞아떨어
 print(statistics.median(c))  # 반면 짝수개일경우 n/2번째 값과 (n/2)+1번째 값의 평균이기 때문에 소수형태로 나온다.
 
 # 분산
-print(statistics.variance(a))
+print(statistics.variance(a))  # 표본분산
 print(statistics.variance(b))
 print(scipy.stats.tvar(a))  # 표본 분산
 
