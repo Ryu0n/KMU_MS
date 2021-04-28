@@ -24,6 +24,49 @@ ex) ((55 + 2*1 - 5) / 2) + 1 = (52 / 2) + 1 = 26 + 1 = 27
 AlexNet 이전에 사용되던 활성함수들은 하이퍼볼릭 탄젠트나 시그모이드와 같은 saturating nonlinearities가 사용되었는데
 Rectified Linear Unit (ReLU)와 같은 non-saturating nonlinearity 활성함수를 사용하자 학습시간이 비약적으로 빨라졌다.
 
+## Local response normalization (LRN)
+신경생물학에서는 lateral inhibition 이라는 현상이 있다. 아래의 사진을 보자.  
+
+![img_5.png](img_5.png)
+검은 사각형을 보다보면 흰색 라인에 회색 점이 보이는 현상이 생긴다. (사람이라면) 이러한 현상을 말하는데,
+이는 강한 신경세포의 신호가 인접한 신경세포들의 신호에도 영향을 주기 때문이다.
+그래서 우리는 해당 커널(강한 신경세포에 대응)과 인접한 커널(주변의 약한 신경세포에 대응)들을 **정규화**시켜주어야 한다.  
+
+![img_6.png](img_6.png)  
+이 수식은 LRN을 일반화한 것이다.  
+* ai(x, y)는 i번째 커널의 (x, y)에 있는 가중치 값을 의미한다.  
+* N은 커널의 수를 의미한다.  
+* n은 i번째 커널에 인접한 커널의 수를 의미한다.  
+
+여기서 시그마의 역할이 중요한데, (x, y)가 없다고 생각해보자. j는 **i번째의 인접한 n개의 커널의 범위를 의미하게 된다. (자기자신을 포함)**  
+즉, **i번째 커널과 주변의 인접한 n-1개의 커널들의 (x, y)값을들 모아 정규화**하겠다는 의미이다.  
+
+![img_7.png](img_7.png)
+
+## Multiple GPUs
+여러대의 GPU로 병렬처리를 하여 연산속도를 높였다.
+
+## Overlapping pooling  
+![img_8.png](img_8.png)  
+기존의 non-overlapping pooling 방식을 사용할 때는 stride를 커널이 겹치지 않도록 설정했다.
+반면, AlexNet에서는 Overlapping max pooling을 진행했는데,
+이는 특징을 더 세밀하게 보아 에러율이 낮아지는 장점은 있지만
+그만큼 연산량이 늘어나는 단점이 있다.
+
+## Dropout
+![img_10.png](img_9.png)  
+AlextNet은 기존의 fully-connected 방식이 아닌 Dropout (일종의 규제 기술)을 사용하여
+완전 연결된 퍼셉트론을 끊어내어 해당 퍼셉트론의 값을 0으로 치환했다. 이는 overfitting을 방지하는데 
+효과가 있고, **테스트 시에는 다시 완전 연결상태로 진행한다.**
+
+## Data argumentation
+![img_10.png](img_10.png)  
+동일한 이미지들을 조금씩 변형시켜가며 학습하면 Overfitting을 방지하는 데 도움이 된다. 
+Data Augmentation에는 이미지를 좌우 반전시키는 Mirroring 기법, 
+이미지의 특정 부분을 무작위로 자르는 Random Crops 기법, 
+RGB채널을 임의로 바꾸는 PCA Color Augmentation 기법 등이 있다. 
+AlexNet을 만든 연구원들은 이러한 방법을 사용하여 데이터 양을 2048배로 늘렸다.
+
 # VGGNet
 VGGNet은 옥스포드 대학의 연구팀 VGG에 의해 개발된 모델로써, **2014년 이미지넷 이미지 인식 대회에서 준우승**을 한 모델이다. 
 여기서 말하는 VGGNet은 16개 또는 19개의 레이어로 구성된 모델을 의미한다(VGG16, VGG19로 불림). 
