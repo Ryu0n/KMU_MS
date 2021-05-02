@@ -152,11 +152,38 @@ GoogleNet 의 주요 구성
   이는 FC(Fully-Connected) Layer를 통과한 것과 동일한 효과를 얻을 수 있으며 단순히 pooling 연산이기 때문에 **추가로 파라미터가 발생하지 않는다**는 장점이 있다. 
 * Auxiliary Classifier  
   Auxiliary Classifier는 깊은 네트워크의 학습에 대한 우려에 의해 추가되었다. 인셉션 모듈이 아무리 잘 작동한다 하더라도, 깊은 네트워크는 항상 Vanishing Gradient의 위험을 안고 있다. 
-  때문에 패러미터의 갱신이 잘 되지 않을 가능성이 존재한다. 이를 피하기 위해, GoogLeNet에서는 연산 도중에 있는 image를 불러들여와 분류한다. 총 두번의 Auxiliary classification이 합쳐져 신경망 학습이 이루어진다.  
+  때문에 패러미터의 갱신이 잘 되지 않을 가능성이 존재한다. 이를 피하기 위해, GoogLeNet에서는 연산 도중에 있는 image를 불러들여와 분류한다. 총 두번의 Auxiliary classification이 합쳐져 신경망 학습이 이루어다.  
   이 Auxiliary classifier는 어디까지나 학습의 용이를 위해 마련되었으므로, 학습이 완료된 후엔 네트워크에서 삭제된다.
-
-
-
-
+  
 # RestNet
+![img_16.png](img_16.png)  
+이전까지는 신경망의 깊이를 늘리기만 하면 성능이 좋아지는 줄 알았지만, 
+위 표(FC layer)를 보면 단순히 깊이를 늘린다 해서 성능이 좋아지는 것은 아님을 깨달았다.
+깊이를 늘리기 위해서는 다른 방법을 사용하여 늘려야 한다.
 
+## Residual Block
+![img_17.png](img_17.png)  
+![img_18.png](img_18.png)  
+RestNet의 핵심개념은 **Residual Block**이다. 입력값을 출력값에 더해줄 수 있도록 지름길(shortcut)을 하나 만들어준 것이다.
+그리고 이 과정은 입력을 그대로 전해주는 것이므로 Identity mapping이라고 칭한다.  
+
+기존의 신경망은 입력값 x를 타겟값 y로 매핑하는 함수 H(x)를 얻는 것이 목적이었다. 
+그러나 ResNet은 F(x) + x를 최소화하는 것을 목적으로 한다. 
+x는 현시점에서 변할 수 없는 값이므로 F(x)를 0에 가깝게 만드는 것이 목적이 된다. 
+F(x)가 0이 되면 출력과 입력이 모두 x로 같아지게 된다. 
+F(x) = H(x) - x이므로 F(x)를 최소로 해준다는 것은 H(x) - x를 최소로 해주는 것과 동일한 의미를 지닌다. 
+여기서 H(x) - x를 잔차(residual)라고 한다. 즉, 잔차를 최소로 해주는 것이므로 ResNet이란 이름이 붙게 된다.  
+
+그리고 역전파(back-propagation)관점에서 보자면 기존의 H(x)를 역전파하기 위해서는 ReLU 함수에 대한 편미분을 진행하지만
+F(x) + x에 대해 편미분을 진행하면 덧셈 연산에 대한 편미분만 진행하기 때문에 전체 연산량의 증가 또한 미비하다.
+
+![img_19.png](img_19.png)  
+그 뿐만 아니라, Identity mapping을 적용하지 않을 경우 (기존의 ConvNet) 곱의 연산에 대해 forward / back-propagation이 일어나지만,
+ResNet과 같은 경우 덧셈에 대해 이를 진행하므로 매우 연산량이 줄어든다. 게다가 이 식을 일반화하여 input(xl)이 에러율에 미치는 영향을 파악해보면
+input gradient (1 + ~)가 0이 될 가능성이 낮으므로 gradient vanishing 현상도 방지할 수 있다.  
+
+![img_21.png](img_21.png)  
+그 결과 깊이가 늘어나도 생기는 문제의 원인들을 해결하자 깊이가 늘어날수록 성능이 향상되는 것을 확인할 수 있다.
+
+## Overall Structure
+![img_20.png](img_20.png)
