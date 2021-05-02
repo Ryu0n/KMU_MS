@@ -3,15 +3,7 @@ AlexNet은 2012년에 개최된 **ILSVRC(ImageNet Large Scale Visual Recognition
 CNN의 부흥에 아주 큰 역할을 한 구조라고 말할 수 있다. AlexNet의 original 논문명은 "ImageNet Classification with Deep Convolutional Neural Networks"이다. 
 이 논문의 첫번째 저자가 Alex Khrizevsky이기 때문에 그의 이름을 따서 AlexNet이라고 부른다. 
 
-AlexNet의 기본구조의 특징은 **2개의 GPU로 병렬연산**을 수행하기 위해서 병렬적인 구조로 설계되었다는 점이 가장 큰 변화이다.  
-
-## Overall structure
-![img.png](img.png)  
-위 그림은 AlexNet의 구조도이다. **5개의 컨볼루션 레이어와 3개의 full-connected 레이어**로 구성되어 있다. 
-두번째, 네번째, 다섯번째 컨볼루션 레이어들은 전 단계의 같은 채널의 특성맵들과만 연결되어 있는 반면, 
-**세번째 컨볼루션 레이어는 전 단계의 두 채널의 특성맵들과 모두 연결되어 있다.**  
-
-local response normalization는 수렴 속도를 높이기 위해 시행된다.
+AlexNet의 기본구조의 특징은 **2개의 GPU로 병렬연산**을 수행하기 위해서 병렬적인 구조로 설계되었다는 점이 가장 큰 변화이다.
 
 ## Calculate feature map size
 ![img_1.png](img_1.png)  
@@ -66,6 +58,14 @@ Data Augmentation에는 이미지를 좌우 반전시키는 Mirroring 기법,
 이미지의 특정 부분을 무작위로 자르는 Random Crops 기법, 
 RGB채널을 임의로 바꾸는 PCA Color Augmentation 기법 등이 있다. 
 AlexNet을 만든 연구원들은 이러한 방법을 사용하여 데이터 양을 2048배로 늘렸다.
+
+## Overall structure
+![img.png](img.png)  
+위 그림은 AlexNet의 구조도이다. **5개의 컨볼루션 레이어와 3개의 full-connected 레이어**로 구성되어 있다. 
+두번째, 네번째, 다섯번째 컨볼루션 레이어들은 전 단계의 같은 채널의 특성맵들과만 연결되어 있는 반면, 
+**세번째 컨볼루션 레이어는 전 단계의 두 채널의 특성맵들과 모두 연결되어 있다.**  
+
+local response normalization는 수렴 속도를 높이기 위해 시행된다.
 
 # VGGNet
 VGGNet은 옥스포드 대학의 연구팀 VGG에 의해 개발된 모델로써, **2014년 이미지넷 이미지 인식 대회에서 준우승**을 한 모델이다. 
@@ -134,7 +134,29 @@ Gabor filter는 사물의 윤곽선을 추출하는 필터다. GoogLeNet에서�
 때문에 인셉션 모듈에서는 세 종류의 크기를 가진 필터가 사용되었다. 
 1x1 Convolution filter는 input image의 공간적 정보를 비교적 잘 담아낼 수 있고, 
 3x3과 5x5는 더 추상적이고 퍼져있는 정보를 보존한다.  
-(커널의 크기가 넓어질수록 특징을 검출하는 범위가 넓어지기 때문)
+(커널의 크기가 넓어질수록 특징을 검출하는 범위가 넓어지기 때문)  
+
+Figure 2의 (b)를 보면 3x3, 5x5 convolutions 에도 1x1 convolutions를 적용할 것을 볼 수 있다.
+1x1 convolution를 사용하는 주된 이유는 **차원 감소**다. 1x1 커널을 적용하면 이미지의 사이즈는 줄어들지 않지만 커널수를 줄이면 차원이 감소하여 정보를 압축하여 학습량을 줄일 수 있기 때문이다.
+
+## Overall Structure
+![img_14.png](img_14.png)  
+
+GoogleNet 의 주요 구성
+* Pre-layer  
+  Pre-layer 계층은 초기학습을 위해 존재하는 구간이다. 인셉션 모듈은 저층에서의 학습효율이 떨어지기 때문에, 학습의 편의성을 위해 추가되었다. 이 구간에서는 일반적인 CNN 연산을 거친다.
+* Inception Layers  
+  ![img_15.png](img_15.png)  
+* Global Average Pooling  
+  위의 표에서 avg pooling의 output size를 보면 1x1x1024 사이즈가 출력으로 나온 것을 확인할 수 있다.
+  이는 FC(Fully-Connected) Layer를 통과한 것과 동일한 효과를 얻을 수 있으며 단순히 pooling 연산이기 때문에 **추가로 파라미터가 발생하지 않는다**는 장점이 있다. 
+* Auxiliary Classifier  
+  Auxiliary Classifier는 깊은 네트워크의 학습에 대한 우려에 의해 추가되었다. 인셉션 모듈이 아무리 잘 작동한다 하더라도, 깊은 네트워크는 항상 Vanishing Gradient의 위험을 안고 있다. 
+  때문에 패러미터의 갱신이 잘 되지 않을 가능성이 존재한다. 이를 피하기 위해, GoogLeNet에서는 연산 도중에 있는 image를 불러들여와 분류한다. 총 두번의 Auxiliary classification이 합쳐져 신경망 학습이 이루어진다.  
+  이 Auxiliary classifier는 어디까지나 학습의 용이를 위해 마련되었으므로, 학습이 완료된 후엔 네트워크에서 삭제된다.
+
+
 
 
 # RestNet
+
