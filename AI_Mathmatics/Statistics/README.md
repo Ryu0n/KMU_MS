@@ -143,3 +143,8 @@ P(남자 and 축구)
 **하나의 사건이 다른 사건에 영향을 주지 않음.**  
 P(B bar A) = P(A and B) / P(A) = P(B)  
 P(A and B) = P(A) * P(B)
+
+## 여사건
+![img_17.png](img_17.png)  
+![img_18.png](img_18.png)  
+
