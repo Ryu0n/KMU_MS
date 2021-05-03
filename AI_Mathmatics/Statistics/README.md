@@ -148,3 +148,19 @@ P(A and B) = P(A) * P(B)
 ![img_17.png](img_17.png)  
 ![img_18.png](img_18.png)  
 
+## 확률의 분할법칙
+![img_19.png](img_19.png)  
+![img_20.png](img_20.png)  
+
+## 베이즈 정리
+![img_21.png](img_21.png)  
+![img_22.png](img_22.png)  
+![img_23.png](img_23.png)  
+2살 이상인 동물을 선택했을 때 그것이 사자일 조건부확률  
+사전확률 : P(A)  
+사후확률 : P(A|B)  
+사후확률과 사전확률의 관계를 정의하기 위한 개념.  
+사전확률에 증거(Evidence)가 추가되며 확률이 갱신됨.
+
+![img_24.png](img_24.png)  
+![img_25.png](img_25.png)
