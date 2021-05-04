@@ -175,7 +175,7 @@ AWS가 S3 버킷에 결제 보고서를 게시하도록 할 수 있다. 해당 �
 * AWS Trusted Advisor  
 AWS 환경에서 모범 사례를 준수하도록 하려면 AWS Trusted Advisor를 사용하면 된다. AWS Trusted Advisor는 맞춤형 클라우드 전문가 같은 역할을 하는 자동화된 서비스이다.  
 
-* TAM (Technical Assistant Manager)
+* TAM (Technical Assistant Manager)  
 사전 예방적 지침을 원하는 고객의 경우 AWS Support에서 고객의 기본 담당자로 지정된 기술 지원 관리자 즉, TAM(Technical Assistant Manager)에게 지원을 문의할 수 있다. 
 TAM은 지침, 아키텍처 검토 및 지속적 커뮤니케이션을 제공하여 솔루션의 계획, 배포 및 최적화를 위한 정보를 지속적으로 제공하고 필요한 준비를 지원한다. 
 기술 지원 관리자는 **Enterprise Support 플랜을 통해서만 이용할 수 있다.**
