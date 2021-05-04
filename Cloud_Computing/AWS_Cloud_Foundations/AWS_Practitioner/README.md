@@ -1,4 +1,8 @@
 # AWS Practitionor 정리
+## 리전
+## Availability Zones (가용영역)
+한개 이상의 데이터 센터로 구성
+
 ## 클라우드 컴퓨팅의 6가지 이점
 * 자본 비용을 가변 비용으로 대체
 * 규모의 경제로 얻게되는 이점
@@ -133,12 +137,36 @@ AWS 클라우드 **리소스** 및 AWS에서 실행하는 **애플리케이션�
 소프트웨어 인벤토리 수집, 운영 체제(OS) 패치 적용, 시스템
 이미지 생성, Windows 및 Linux 운영 체제 구성을 자동화해주는 관리 서비스.  
 
-#### AWS CloudFormation
-#### AWS CloudTrail
-#### AWS Config
-#### AWS OpsWorks
-#### AWS Service Catalog
-#### AWS Trusted Advisor
+#### AWS CloudFormation  
+개발자와 시스템 관리자는 AWS CloudFormation을 통해 쉽게 관련 AWS 리소스 모음을 생성 및
+관리하고 순서에 따라 예측 가능한 방식으로 프로비저닝하고 업데이트할 수 있다.
+
+#### AWS CloudTrail  
+계정에 대한 AWS API 호출을 기록하고 로그 파일을 사용자에게 전달하는 웹
+서비스.  
+
+#### AWS Config  
+AWS 리소스 인벤토리, 구성 기록, 구성 변경 알림을 제공하여 보안 및 거버넌스를
+실현하는 완전관리형 서비스. AWS Config에서는 기존 및 삭제된 AWS 리소스를 찾고, 규칙과 대조하여 전반적인 규정 준수 상태를
+확인하며, 언제든 리소스의 구성 세부 정보를 자세히 살펴볼 수 있다. 이러한 기능을 바탕으로
+규정 준수 감사, 보안 분석, 리소스 변경 추적, 문제 해결을 수행할 수 있다.
+
+#### AWS OpsWorks  
+구성 관리 서비스로서, 서버 구성을 코드로 취급하는 자동화 플랫폼인 Chef를
+사용한다. OpsWorks는 Chef를 사용하여 EC2 인스턴스 또는 온프레미스 컴퓨팅 환경 전반에
+걸쳐 서버를 구성, 배포, 관리하는 작업을 자동화한다. OpsWorks에는 AWS OpsWorks for Chef
+Automate와 AWS OpsWorks Stacks라는 두 가지 제품이 있다.
+
+#### AWS Service Catalog  
+AWS에서 사용이 승인된 IT 서비스 카탈로그를 생성하고 관리할 수 있다. 
+이때 IT 서비스란 다중 계층 애플리케이션 아키텍처를 완성하기 위한 가상 머신 이미지, 서버, 소프트웨어, 데이터베이스 등을 포괄한다. AWS Service Catalog를 사용하면
+흔히 배포되는 IT 서비스를 중앙에서 관리할 수 있고 일관성 있는 거버넌스를 수립하는 데 도움이 될 뿐 아니라 규정 준수 요건을 충족할 수 있는 반면에 사용자는 
+자신이 필요한 승인 IT 서비스만 신속하게 배포할 수 있다.
+
+#### AWS Trusted Advisor  
+AWS 환경을 최적화하여 비용을 줄여주고 성능을 향상시키며 보안을 개선하는 온라인 리소스다.
+Trusted Advisor는 AWS 모범 사례에 따라 리소스를 프로비저닝하는 데 도움이 되는 실시간 지침을 제공한다.
+
 #### AWS Personal Health Dashboard
 #### AWS Managed Services
 
