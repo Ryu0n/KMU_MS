@@ -112,7 +112,7 @@ AWS 글로벌 인프라는 세 가지 요소로 나눌 수 있다.
   Apache 및 Microsoft Internet Information Service (IIS)와 같은 잘 알려진 서버에 웹 애플리케이션 및 서비스를 배포하고 확장할 때 사용되는 서비스다.
 * AWS Lambda  
   서버를 프로비저닝 하거나 관리하지 않고도 코드를 실행할 수 있게 해준다. 
-* AWS Elastic Kubernetes Service (EKS)
+* AWS Elastic Kubernetes Service (EKS)  
   AWS에서 Kubernetes를 사용하는 컨테이너식 애플리케이  션을 손쉽게 배포하고 관리하고 확장할 수 있다.
 * AWS Fargate  
   서버 또는 클러스터를 관리할 필요 없이 컨테이너를 실행할 수 있는 Amazon ECS용 컴퓨팅 엔진이다.
