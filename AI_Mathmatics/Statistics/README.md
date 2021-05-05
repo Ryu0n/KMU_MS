@@ -164,3 +164,19 @@ P(A and B) = P(A) * P(B)
 
 ![img_24.png](img_24.png)  
 ![img_25.png](img_25.png)
+
+## 확률 변수 (random variable)
+![img_26.png](img_26.png)  
+확률변수는 표본공간에서 랜덤하게 추출한 요소중 특정 조건을 만족하는 것(관계)을 정의해두는 것을 의미한다.  
+**확률변수는 실수다.**
+
+![img_27.png](img_27.png)  
+이산확률변수 : 관계로 정의된 요소들의 값 범위(도메인)가 이산적으로 떨어져있는 경우 (불연속성)  
+연속확률변수 : 관계로 정의된 요소들의 값 범위(도메인)가 연속적으로 구성되어 있는 경우
+
+## 확률 분포 (Probability Distribution)
+![img_28.png](img_28.png)  
+![img_29.png](img_29.png)  
+![img_30.png](img_30.png)  
+![img_31.png](img_31.png)  
+표본평균과 표본분산이 모평균과 모분산에 대응.
