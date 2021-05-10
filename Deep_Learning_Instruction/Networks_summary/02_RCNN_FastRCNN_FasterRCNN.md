@@ -62,7 +62,13 @@ R-CNN에 사용된 3가지 모듈
 
 참고 : https://ganghee-lee.tistory.com/35
 
-## Box Regression
+## Feature Extraction
+## Classification
+## Non-Maximum Suppression
+## Bounding Box Regression
+## Loss Function
+
+참고 : https://yeomko.tistory.com/13
 
 # Fast R-CNN
 ![img_31.png](img_31.png)  
@@ -74,6 +80,8 @@ R-CNN의 속도를 개선하기 위해 Fast R-CNN이 나왔다.
 참고 : https://ganghee-lee.tistory.com/36
 
 ![img_32.png](img_32.png)
+
+## Loss Function
 
 # Faster R-CNN
 ![img_33.png](img_33.png)  
@@ -100,3 +108,5 @@ reg layer는 4K의 좌표값들이 존재한다. (x, y, w, h) * k
 cls layer는 2K의 점수들이 존재한다. (isinstance? or isbackground?) * k  
 
 참고 : https://leechamin.tistory.com/221
+
+## Loss Function
