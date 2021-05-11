@@ -63,9 +63,83 @@ R-CNN에 사용된 3가지 모듈
 참고 : https://ganghee-lee.tistory.com/35
 
 ## Feature Extraction
+
+Selective Search를 통해서 찾아낸 2천개의 박스 영역은 227 x 227 크기로 리사이즈 된다. (warp)
+그리고 Image Classification으로 미리 학습되어 있는 CNN 모델을 통과하여 4096 크기의 특징 벡터를 추출한다.
+ 
+저자들은 이미지넷 데이터(ILSVRC2012 classification)로 미리 학습된 CNN 모델을 가져온 다음, fine tune하는 방식을 취했다.
+fine tune 시에는 실제 Object Detection을 적용할 데이터 셋에서 ground truth에 해당하는 이미지들을 가져와 학습시켰다. 
+그리고 Classification의 마지막 레이어를 Object Detection의 클래스 수 N과 아무 물체도 없는 배경까지 포함한 N+1로 맞춰주었다.  
+
+![img_36.png](img_36.png)  
+FT는 fine tune의 약자이며, 각 CNN 레이어 층에서 추출된 벡터로 SVM Classifier를 학습시켜서 얻은 mAP를 비교한 것이다.
+mAP는 Object Detection 분야에서 많이 사용되는 정확도 측정 지표이다. (https://better-today.tistory.com/3)  
+전반적으로 fine tuning을 거친 것들이 성능이 더 좋음을 확인할 수 있다. 그리고 마지막에 BB로 적힌 것은 Bounding Box Regression을 적용한 것이다.  
+
+정리하자면, 미리 이미지 넷으로 학습된 CNN을 가져와서, Object Detection용 데이터 셋으로 fine tuning 한 뒤,
+selective search 결과로 뽑힌 이미지들로부터 특징 벡터를 추출한다.
+
 ## Classification
+CNN을 통해 추출한 벡터를 가지고 각각의 클래스 별로 SVM Classifier를 학습시킨다.
+주어진 벡터를 놓고 이것이 해당 물체가 맞는지 아닌지를 구분하는 Classifier 모델을 학습시키는 것이다.
+이미 학습되어 있는 CNN Classifier를 두고 왜 SVM을 별도로 학습시키는 것일까?
+ 
+"그냥 CNN Classifier를 쓰는 것이 SVM을 썼을 때보다 mAP 성능이 4% 정도 낮아졌다.
+이는 아마도 fine tuning 과정에서 물체의 위치 정보가 유실되고 무작위로 추출된 샘플을 학습하여 발생한 것으로 보인다."
+
 ## Non-Maximum Suppression
+SVM을 통과하여 이제 각각의 박스들은 어떤 물체일 확률 값 (Score) 값을 가지게 되었다.
+그런데 2천개 박스가 모두 필요한 것일까?
+동일한 물체에 여러 개의 박스가 쳐져있는 것이라면,  가장 스코어가 높은 박스만 남기고 나머지는 제거해야 한다.
+이 과정을 Non-Maximum Supperssion이라 한다.
+
+![img_37.png](img_37.png)  
+
+서로 다른 두 박스가 동일한 물체에 쳐져 있다고 어떻게 판별할 수 있을까?
+여기서 IoU (Intersection over Union) 개념이 적용된다.
+쉽게 말하면 두 박스의 교집합을 합집합으로 나눠준 값이다.
+두 박스가 일치할 수록 1에 가까운 값이 나오게 된다.  
+
+![img_38.png](img_38.png)  
+논문에서는 IoU가 0.5 보다 크면 동일한 물체를 대상으로 한 박스로 판단하고 Non-Maximum Suppression을 적용한다.
+
 ## Bounding Box Regression
+지금까지 물체가 있을 법한 위치를 찾았고, 해당 물체의 종류를 판별할 수 있는 클래시피케이션 모델을 학습시켰다.
+하지만 Selective Search를 통해서 찾은 박스 위치는 상당히 부정확하다.
+따라서 성능을 끌어올리기 위해서 이 박스 위치를 교정해주는 부분을 Bounding Box Regression이라 한다.
+ 
+먼저 하나의 박스를 다음과 같이 표기할 수 있다.
+여기서 x, y는 이미지의 중심점, w, h는 각각 너비와 높이다.  
+![img_39.png](img_39.png)  
+
+Ground Truth에 해당하는 박스도 다음과 같이 표기할 수 있다.  
+![img_40.png](img_40.png)  
+
+우리의 목표는 P에 해당하는 박스를 최대한 G에 가깝도록 이동시키는 함수를 학습시키는 것이다.
+박스가 인풋으로 들어왔을 때, x, y, w, h를 각각 이동 시켜주는 함수들을 표현해보면 다음과 같다.  
+![img_41.png](img_41.png)  
+
+이 때, x, y는 점이기 때문에 이미지의 크기에 상관없이 위치만 이동시켜주면 된다.
+반면에 너비와 높이는 이미지의 크기에 비례하여 조정을 시켜주어야 한다.
+이러한 특성을 반영하여 P를 이동시키는 함수의 식을 짜보면 다음과 같다.  
+![img_42.png](img_42.png)  
+
+우리가 학습을 통해서 얻고자 하는 함수는 저 d 함수이다.
+저자들은 이 d 함수를 구하기 위해서 앞서 CNN을 통과할 때 pool5 레이어에서 얻어낸 특징 벡터를 사용한다. 
+그리고 함수에 학습 가능한 웨이트 벡터를 주어 계산한다. 이를 식으로 나타내면 아래와 같다.  
+![img_43.png](img_43.png)  
+참고 : https://light-tree.tistory.com/125  
+
+이제 웨이트를 학습시킬 로스 펑션을 세워보면 다음과 같다.
+일반적인 MSE 에러 함수에 L2 normalization을 추가한 형태이다.
+저자들은 람다를 1000으로 설정했다.  
+![img_44.png](img_44.png)  
+φ(Pi)는 VGG넷의 pool5를 거친 피쳐맵  
+여기서 t는 P를 G로 이동시키기 위해서 필요한 이동량을 의미하며 식으로 나타내면 아래와 같다.
+![img_45.png](img_45.png)  
+정리를 해보면 CNN을 통과하여 추출된 벡터와 x, y, w, h를 조정하는 함수의 웨이트를 곱해서
+바운딩 박스를 조정해주는 선형 회귀를 학습시키는 것이다.
+
 ## Loss Function
 
 참고 : https://yeomko.tistory.com/13
@@ -82,6 +156,17 @@ R-CNN의 속도를 개선하기 위해 Fast R-CNN이 나왔다.
 ![img_32.png](img_32.png)
 
 ## Loss Function
+![img_46.png](img_46.png)  
+(ROI pooling 이후)  
+bounding box의 조절값에 대한 loss function과 classification에 대한 loss function을 조합하여 이를 통해
+모델을 학습시켜야 한다.  
+
+p : 클래스별 예측 확률값 (예측 라벨값)  
+u : 실제 라벨값  
+tu : 예측 bounding box 조절값  
+v : 실제 bounding box 조절값
+
+참고 : https://yeomko.tistory.com/15?category=888201
 
 # Faster R-CNN
 ![img_33.png](img_33.png)  
@@ -96,6 +181,8 @@ R-CNN의 속도를 개선하기 위해 Fast R-CNN이 나왔다.
 
 ## Region Proposal Network
 ![img_34.png](img_34.png)  
+![img_47.png](img_47.png)  
+참고 : https://yeomko.tistory.com/17?category=888201
 
 ### Anchor
 ![img_35.png](img_35.png)  
@@ -110,3 +197,13 @@ cls layer는 2K의 점수들이 존재한다. (isinstance? or isbackground?) * k
 참고 : https://leechamin.tistory.com/221
 
 ## Loss Function
+![img_48.png](img_48.png)  
+i : 하나의 앵커  
+pi : classsification을 통해서 얻은 해당 엥커가 오브젝트일 확률
+ti : bounding box regression을 통해서 얻은 박스 조정 값 벡터 
+pi* 와 ti* : ground truth 라벨  
+
+특이한 점은 각각 Ncls와 Nreg 나누어 주는 부분이 있다. 
+이는 특별한 의미를 갖는 것은 아니고 Ncls는 minibatch 사이즈이며 논문에서는 256이다. 
+Nreg는 엥커 개수에 해당하며 약 2400개 (256 x 9)에 해당한다. 
+람다는 Classifiaction Loss와 Regression Loss 사이에 가중치를 조절해주는 부분, 사실상 두 로스는 동일하게 가중치가 매겨진다.
