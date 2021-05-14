@@ -74,4 +74,54 @@ Classic Load Balancer를 사용하는 경우 로드밸런서에 **인스턴스�
   Lambda 함수를 사용하여 웹 사이트 전체를 구축하거나 EC2 인스턴스, 컨테이너, 온프레미스 서버 및 Lambda 함수를 결합하여 애플리케이션을 만들 수 있습니다.
 
 # Amazon CloudWatch
+![img_4.png](img_4.png)  
+AWS를 효율적으로 사용하려면 AWS 리소스에 대한 통찰력이 필요합니다. 예를들어 다음 정보를 파악해야 할 수 있습니다.  
+* 더 많은 Amazon EC2 인스턴스를 언제 시작해야하는가?  
+  
+* 용량이 충분하지 않아서 애플리케이션의 성능 또는 가용성이 영향을 받고있는가?  
+  
+* 인프라에서 실제로 사용되고 있는 부분은 얼마나 되는가? 이 정보를 어떻게 캡처해야 하는가?  
+
+![img_5.png](img_5.png)  
+Amazon CloudWatch를 사용하여 이 정보(인프라에서 실제로 사용되고 있는 부분)를 캡처할 수 있습니다.
+Amazon CloudWatch는 DevOps 엔지니어, 개발자, SRE(사이트안정성엔지니어) 및 IT 관리자를 위해 구축된 모니터링 및 관찰 기능 서비스입니다. 
+CloudWatch는 AWS 리소스와 AWS에서 실행되는 애플리케이션을 실시간으로 모니터링합니다. 
+CloudWatch를 사용하여 리소스 및 애플리케이션에 대해 측정할 수 있는 변수인 지표를 수집하고 추적할 수 있습니다. 
+계정의 모든 Amazon CloudWatch 지표를 모니터링하는 경보를 생성하고 해당 경보를 사용하여 **자동으로 Amazon Simple Notification Service(Amazon SNS) 주제로 알림을 보내거나 Amazon EC2 Auto Scaling 또는 Amazon EC2 작업을 수행할 수 있습니다.** 
+예를들어 EC2 인스턴스의 CPU 사용률, Elastic Load Balancing 요청 지연 시간, Amazon DynamoDB 테이블 처리량, Amazon Simple Queue Service(Amazon SQS) 대기열 길이 또는 AWS 청구서의 요금에 대한 경보를 생성할 수 있습니다. 
+또한 사용자 지정 애플리케이션 또는 인프라에 해당하는 사용자 지정 지표에 대한 경보도 생성할 수 있습니다.
+**또한 Amazon CloudWatch Events를 사용하여 수신 이벤트(또는AWS 환경의변경사항)와 일치하는 규칙을 정의하고 이를 대상으로 라우팅하여 처리할 수 있습니다.** 
+대상에는 Amazon EC2 인스턴스, AWS Lambda 함수, Kinesis 스트림, Amazon ECS 작업, Step Functions 상태시스템, Amazon SNS 주제, Amazon SQS 대기열 및 기본 제공 대상이 포함될 수 있습니다. 
+CloudWatch Events는 운영변경시 이를 알아차립니다. CloudWatch Events는 환경에 응답하기 위한 메시지를 전송하고, 함수를 활성화하고, 변경을 수행하고, 상태 정보를 기록하는 등 이러한 운영 변경에 응답하고 필요에 따라 교정조치를 취합니다. 
+CloudWatch를 사용하면 시스템 전체의 리소스 사용률, 애플리케이션 성능 및 운영상태를 파악할 수 있습니다. 
+사전 약정이나 최소 비용이 없으며 단순하게 사용량에 따라 비용을 지불하면 됩니다. 매달말에 사용한만큼 요금이 청구됩니다.  
+
+![img_6.png](img_6.png)  
+CloudWatch 지표를 기준으로 단일 CloudWatch 지표 또는 수학 표현식의 결과를 감시하는 CloudWatch 경보를 생성할 수 있습니다. 
+정적 임계값, 이상 탐지 또는 지표 수학 표현식을 기준으로 CloudWatch 경보를 생성할 수 있습니다.
+정적 임계값을 기준으로 경보를 생성할 때는 경보를 통해 **감시할 CloudWatch 지표를 선택**하고 **해당 지표의 임계값을 선택**합니다. 
+지표가 지정된 수의 평가기간에 대한 임계값을 위반할 경우 경보가 ALARM 상태가됩니다. 
+정적 임계값을 기준으로 하는 경보의 경우 다음을 지정해야합니다.  
+* 네임스페이스  
+  – 네임스페이스에는 사용자가 원하는 CloudWatch 지표(예: AWS/EC2)가 포함됩니다.  
+  
+* 지표  
+  – 지표는 측정하려는 변수(예: CPU 사용률)입니다.  
+  
+* 통계  
+  – 통계는 평균, 합계, 최소값, 최대값, 샘플수, 사전 정의된 백분위수 또는 사용자 지정 백분위수일 수 있습니다.  
+  
+* 기간  
+  – 기간은 경보의 평가 기간 입니다. 경보가 평가되면 각 기간이 하나의 데이터 포인트로 집계됩니다.  
+  
+* 조건  
+  – 정적 임계값에 대한 조건을 지정할 때는 지표가 임계값보다 Greater(큼), Greater or Equal(크거나같음), Lower or Equal(작거나같음) 또는 Lower(작음)인 경우를 모두 지정하고 임계값도 지정합니다.
+  
+* 추가구성정보  
+  – 이 정보에는 위반할 경우 경보가 트리거 되는 평가 기간내의 데이터 포인트 수와 CloudWatch가 경보를 평가할 때 누락된 데이터를 처리하는 방법이 포함됩니다.  
+  
+* 작업  
+  – Amazon SNS 주제에 알림을 보내거나 Amazon EC2 Auto Scaling 작업 또는 Amazon EC2 작업을 수행하도록 선택할 수 있습니다.
+
+
 # Amazon EC2 Auto Scaling
