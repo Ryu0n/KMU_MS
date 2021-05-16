@@ -13,7 +13,7 @@ p = stats.norm.cdf(4, loc=4, scale=3)  # (Z 정규화) X = 4, 평균 = 4, 표준
 print(p)
 
 # X~N(4, 3^2), P[4<=X<=7]
-p = stats.norm.cdf(7, loc=4, scale=3) - stats.norm.cdf(4, loc=4, scale=4)
+p = stats.norm.cdf(7, loc=4, scale=3) - stats.norm.cdf(4, loc=4, scale=3)
 print(p)
 
 # Poisson distribution
