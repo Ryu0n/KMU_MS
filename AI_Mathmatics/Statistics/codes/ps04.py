@@ -4,6 +4,9 @@ from scipy import stats
 # 최소 한번은 성공할 확률은?
 p = stats.binom.cdf(0, n=3, p=0.2)
 print(1-p)
+mean_binom, var_binom = stats.binom.stats(n=3, p=0.2)
+print(f'mean : {mean_binom}')
+print(f'var : {var_binom}')
 
 # X~N(4, 3^2), P[X<=4]
 p = stats.norm.cdf(4, loc=4, scale=3)  # (Z 정규화) X = 4, 평균 = 4, 표준편차 = 3
