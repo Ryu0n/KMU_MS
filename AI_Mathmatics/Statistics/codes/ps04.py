@@ -12,3 +12,11 @@ print(p)
 # X~N(4, 3^2), P[4<=X<=7]
 p = stats.norm.cdf(7, loc=4, scale=3) - stats.norm.cdf(4, loc=4, scale=4)
 print(p)
+
+# Poisson distribution
+p = stats.poisson.cdf(2, mu=3)  # x=2, mean=3
+print(p)
+
+# exponential distribution
+lam = 3
+p = stats.expon.cdf(0.5, scale=1/lam)  # x=0.5, scale=표준편차(1/lambda)
