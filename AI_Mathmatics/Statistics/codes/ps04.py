@@ -23,3 +23,7 @@ print(p)
 # exponential distribution
 lam = 3
 p = stats.expon.cdf(0.5, scale=1/lam)  # x=0.5, scale=표준편차(1/lambda)
+
+# import numpy as np
+# r = np.random.rand(3)
+# print(r*10, type(r))
