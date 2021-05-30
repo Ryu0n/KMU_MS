@@ -20,3 +20,14 @@ alpha = 0.05
 zalpha = scipy.stats.norm.ppf(1-alpha/2)
 print('zalpha : ', zalpha)
 print('min : ', xbar - zalpha*sd/math.sqrt(len(w)), 'max : ', xbar + zalpha*sd/math.sqrt(len(w)))
+
+# 모비율 추정
+x = 48
+n = 150
+phat = x / n
+alpha = 0.05
+zalpha = scipy.stats.norm.ppf(1-alpha/2)
+sd = np.sqrt((phat * (1-phat))/n)
+ci = [phat - zalpha*sd, phat + zalpha*sd]
+print('phat %.3f, zalpha %.3f, sd %.3f' %(phat, zalpha, sd))
+print(ci)
