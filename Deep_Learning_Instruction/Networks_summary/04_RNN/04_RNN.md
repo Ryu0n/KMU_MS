@@ -46,6 +46,7 @@ CNN의 Grandient Vanishing 현상처럼 RNN에서도 기억을 잃는 현상이 
 ![img_5.png](img_5.png)  
 **입력층, 은닉층, 출력층**의 구조를 지니고 있으며 은닉층이 **순환연결**구조 를 가지고 있다.
 ht-1(hidden t-1)의 상태가 ht에 영향을 주고, ht는 ht+1에 영향을 주는 구조이다.  
+그리고, 가중치 3개를 공유한다. (Wih, Whh, Who)
 
 ![img_6.png](img_6.png)  
 RNN의 구조는 크게 **One to many, Many to many, Many to one**으로 나눌 수 있다.  
@@ -60,4 +61,15 @@ RNN의 구조는 크게 **One to many, Many to many, Many to one**으로 나눌 
   
 ### RNN 동작
 ![img_7.png](img_7.png)  
+매 시점마다 인풋과 전 시점의 상태를 결합하여 tanh(하이퍼볼릭 탄젠트) 활성함수를 통해 나온 결과가 **다음 시점의 상태로써 대입**된다.  
 
+![img_8.png](img_8.png)  
+결합은 **concatenation 연산**이 수행된다.
+
+### RNN 학습  
+![img_9.png](img_9.png)  
+RNN은 망이 깊어질수록 backpropagation을 진행하는 과정에서 gradient vanishing 문제가 발생할 수 있다.  
+
+![img_10.png](img_10.png)  
+그래서 일정한 그룹단위로 backpropagation을 수행하는 것을 **BPTT**(BackPropagation Through Time)이라고 한다.
+![img_11.png](img_11.png)
