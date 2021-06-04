@@ -41,3 +41,23 @@ CNN의 Grandient Vanishing 현상처럼 RNN에서도 기억을 잃는 현상이 
 
 최근에는 순환 신경망을 생성 모델로 사용  
 ▪ 예, CNN과 LSTM이 협력하여 자연 영상에 주석 생성하는 문제를 해결
+
+### RNN 구조
+![img_5.png](img_5.png)  
+**입력층, 은닉층, 출력층**의 구조를 지니고 있으며 은닉층이 **순환연결**구조 를 가지고 있다.
+ht-1(hidden t-1)의 상태가 ht에 영향을 주고, ht는 ht+1에 영향을 주는 구조이다.  
+
+![img_6.png](img_6.png)  
+RNN의 구조는 크게 **One to many, Many to many, Many to one**으로 나눌 수 있다.  
+* One to many  
+하나의 사진에 대해 여러 글자의 주석을 다는 image captioning을 예로 들 수 있다.  
+  
+* Many to many  
+이어지는 말에 대한 (여러 음절) 여러 문자로 표현하는 STT (Speech To Text)를 예로 들 수 있다.  
+  
+* Many to one  
+여러 문자에 대해 (예를 들면 단어로 이루어진 문장) 의미하는 바(하나)를 이해하는 Text classification을 예로 들 수 있다.  
+  
+### RNN 동작
+![img_7.png](img_7.png)  
+
