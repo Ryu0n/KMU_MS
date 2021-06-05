@@ -73,3 +73,20 @@ RNN은 망이 깊어질수록 backpropagation을 진행하는 과정에서 gradi
 ![img_10.png](img_10.png)  
 그래서 일정한 그룹단위로 backpropagation을 수행하는 것을 **BPTT**(BackPropagation Through Time)이라고 한다.
 ![img_11.png](img_11.png)
+
+### Bidirectional RNN  
+![img_12.png](img_12.png)  
+단방향으로 연결된 RNN은 위의 예시처럼 '거지'나 '지지'와 같은 글자를 구분하기 어렵다. (양방향 문맥 의존성)
+고로 양방향으로 연결된 RNN은 문맥을 파악하여 이런 정보를 구별하는데 훨씬 유리하다.  
+
+![img_13.png](img_13.png)  
+위 문장에서 'are' 라는 단어는 앞 뒤 문맥을 보고 적절한 단어를 파악한다.
+
+### 장기 문맥 의존성
+![img_14.png](img_14.png)  
+문장이 길어질수록 앞의 데이터와 뒤의 데이터의 연관성은 점차 낮아지는 현상이 생긴다.
+이를 장기 문맥 의존성이라 한다. RNN에서는 이 현상이 gradient vanishing 현상으로 발현된다.  
+
+### LSTM (Long-Term Short Memory)
+![img_15.png](img_15.png)  
+
