@@ -87,6 +87,3 @@ RNN은 망이 깊어질수록 backpropagation을 진행하는 과정에서 gradi
 문장이 길어질수록 앞의 데이터와 뒤의 데이터의 연관성은 점차 낮아지는 현상이 생긴다.
 이를 장기 문맥 의존성이라 한다. RNN에서는 이 현상이 gradient vanishing 현상으로 발현된다.  
 
-### LSTM (Long-Term Short Memory)
-![img_15.png](img_15.png)  
-
