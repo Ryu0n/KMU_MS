@@ -11,3 +11,6 @@
 9. [특이값 분해 (Singular Value Decomposition)](markdowns/09_SVD.md)
 10. [주성분 분석 (Principal Component Analysis)](markdowns/10_PCA.md)
 11. [최소제곱법 (Least Squares Method)](markdowns/11_least_squares_method.md)
+12. 고유값 분해
+13. 그람-슈미트 프로세스
+14. SVM
