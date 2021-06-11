@@ -9,7 +9,7 @@ Machine learning은 크게 두 분류로 나눌 수 있다.
 데이터의 특징(feature)를 사람이 손수 설계해줘야함.  
 ex) SVM, Random Forest  
    
-2. Representation Learning
+2. Representation Learning  
 데이터의 특징(feature)을 **시스템이 직접 도출**해낼 수 있음.  
 Deep learning은 hidden layer를 통해 더 깊은 층으로 복잡한 target distribution을 도출해낼 수 있다.
 
