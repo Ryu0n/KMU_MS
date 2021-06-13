@@ -17,3 +17,8 @@ print(cross_entropy(P, Q))
 
 Q = [0.2, 0.8]
 print(cross_entropy(P, Q))
+
+
+P = [0.23, 0.22, 0.25, 0.19, 0.11]
+entropy = sum([-p*np.log2(p) for p in P])
+print(entropy)

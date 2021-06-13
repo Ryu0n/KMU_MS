@@ -20,6 +20,19 @@ zalpha = scipy.stats.norm.ppf(1-alpha/2)
 print('zalpha : ', zalpha)
 print('min : ', xbar - zalpha*sd/np.sqrt(len(w)), 'max : ', xbar + zalpha*sd/np.sqrt(len(w)))
 
+A = [31, 33, 29, 28, 25, 32, 32, 34, 26,
+     30, 29, 29, 32, 26, 27, 27, 25, 26,
+     33, 29, 25, 33, 32, 26, 28, 34, 32,
+     29, 33, 30, 30, 31, 26, 28, 28, 32]
+n = len(A)
+xbar = np.mean(A)
+std = np.std(w, ddof=1)
+alpha = 0.05
+zalpha = scipy.stats.norm.ppf(1-alpha/2)
+diff = zalpha * std / np.sqrt(n)
+section = (xbar - diff, xbar + diff)
+print('section : ', section)
+
 # 모비율 추정
 x = 48
 n = 150

@@ -57,6 +57,10 @@ print(numpy.quantile(a, .60))  # 60%에 위치하는 값
 # 사분위범위
 print(numpy.quantile(a, .75) - numpy.quantile(a, .25))
 
+b = [9, 17, 11, 22, 12, 26, 13, 23, 4, 8, 8, 15]
+print('b quantile')
+print(numpy.quantile(b, .75) - numpy.quantile(b, .25))
+
 # z-score
 print(a)
 print(scipy.stats.zscore(a))  # 모집단의 z-score
