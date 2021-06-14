@@ -20,3 +20,17 @@ alpha = 0.05
 # 임계값
 cri = scipy.stats.norm.ppf(1-alpha/2)
 print('임계값 : ', cri)
+
+A = [31, 33, 29, 28, 25, 32, 32, 34, 26,
+     30, 29, 29, 32, 26, 27, 27, 25, 26,
+     33, 29, 25, 33, 32, 26, 28, 34, 32,
+     29, 33, 30, 30, 31, 26, 28, 28, 32]
+mu = 29.5
+xbar = np.mean(A)
+std = np.std(A, ddof=1)
+z = (xbar - mu) / (std / np.sqrt(len(A)))
+alpha = 0.05
+cri = scipy.stats.norm.ppf(1-alpha)
+print('z : ', z)
+print('cri : ', cri)
+print(z >= cri)
