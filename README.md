@@ -9,4 +9,17 @@
   * [RNN](dl_instruction/Networks_summary/04_RNN/04_RNN.md)
 
 * 인공지능 수학 (AI mathematics)
+  * 선형대수학
+  * 통계학
+
 * 클라우드 컴퓨팅 (Cloud Computing)
+
+# Second semester
+* 인공지능 연구
+* 인공지능 세미나
+
+# Third semester
+* 기계학습 기초 (Machine learning instruction)
+* 기계학습 프로젝트 (Machine learning project)
+* 자연어 처리와 인공지능 (NLP & AI)
+* 추천 시스템과 인공지능 (Recommend system & AI)
