@@ -54,4 +54,36 @@
 - 한, 중, 일 공통 한자는 1개의 코드 부여
 - 음가가 2개 이상인 한자에 대해 하나의 코드만 부여
 
-# UTF 인코딩
+## 유니코드에서 초성/중성/종성 인식
+* 초성  
+  (((코드값 - 0xAC00) / 28) / 21) % 19
+* 중성  
+  ((코드값 - 0xAC00) / 28) % 21
+* 종성  
+  (코드값 - 0xAC00) % 28
+
+# UTF 인코딩 (Unicode Transformation Format)
+## UTF-8
+1 ~ 4 바이트로 구현
+* 1 Byte 구현  
+  ASCII 코드는 1바이트로 구현한다. (MSB = 0)  
+  0XXX XXXX
+* 2 Byte 구현  
+  110X XXXX  
+  10XX XXXX
+* 3 Byte 구현  
+  1110 XXXX  
+  10XX XXXX  
+  10XX XXXX  
+* 4 Byte 구현  
+  SMP 영역 (Z비트 : 17 ~ 21 bits)  
+  1111 0ZZZ  
+  10ZZ XXXX  
+  10XX XXXX  
+  10XX XXXX  
+
+## UTF-16
+2 or 4 바이트로 구현
+
+## UTF-32
+4 바이트로 구현
