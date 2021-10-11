@@ -1,5 +1,3 @@
-# Kookmin_Univ_AI_Repo
-
 # First semester 
 * 딥러닝 기초 (Deep learning instruction)  
   * [기본내용](dl_instruction/Networks_summary/00_Basic/README.md)
