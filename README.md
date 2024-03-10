@@ -12,9 +12,6 @@
 
 * 클라우드 컴퓨팅 (Cloud Computing)
 
-# Second semester
-* 인공지능 연구
-* 인공지능 세미나
 
 # Third semester
 * 기계학습 기초 (Machine learning instruction)
